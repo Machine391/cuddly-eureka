@@ -1,0 +1,179 @@
+#!/bin/bash
+
+# Color codes
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# Define the list of packages to install
+packages=(
+    "aircrack-ng-custom_1.7-1_mipsel_24kc.ipk"
+    "airmon-ng-custom_1.7-1_mipsel_24kc.ipk"
+    # Add other packages here
+)
+
+# Function to install packages
+install_packages() {
+    echo -e "${YELLOW}Installing packages...${NC}"
+    for package in "${packages[@]}"; do
+        opkg install "$package"
+    done
+}
+
+# Function to clone git repositories
+clone_repositories() {
+    echo -e "${YELLOW}Cloning git repositories...${NC}"
+    git clone https://github.com/scateu/kalibrate-hackrf.git
+    git clone https://github.com/Oros42/IMSI-catcher.git
+    # Add other git clone commands here
+}
+
+# Function to capture IMSI numbers
+capture_imsi() {
+    echo -e "${YELLOW}Scanning frequencies and capturing IMSI numbers...${NC}"
+    timeout 60s sudo rtl_fm -f 935M:960M -M fm -s 200000 -r 48000 - | sudo multimon-ng -t raw -a FLEX -a POCSAG512 -a POCSAG1200 -a POCSAG2400 -a POCSAG -a SCOPE -a AFSK1200 -a AFSK2400 -a AFSK2400_2 -a AFSK2400_3 -a HAPN4800 -a FSK9600 -a DTMF -a ZVEI1 -a ZVEI2 -a ZVEI3 -a DZVEI -a PZVEI -a EEA -a EIA -a CCIR -a MORSE_CW -a MORSE_WWV -a DUMPCSV - | grep -o -E 'IMSI: [0-9]+' | cut -d' ' -f2
+}
+
+# Function to backup IMSI data
+backup_data() {
+    local TIMESTAMP=$(date +"%Y%m%d%H%M%S")
+    local BACKUP_DIR="backups/backup_$TIMESTAMP"
+    
+    echo -e "${YELLOW}Creating backup directory: $BACKUP_DIR${NC}"
+    sudo mkdir -p "$BACKUP_DIR"
+    
+    echo -e "${YELLOW}Copying IMSI data to backup directory...${NC}"
+    sudo cp imsi_data.txt "$BACKUP_DIR/"
+    
+    echo -e "${GREEN}Backup complete.${NC}"
+}
+
+# Function to display title
+display_title() {
+    echo -e "${BLUE}=====================${NC}"
+    echo -e "${BLUE} IMSI Catcher Platform ${NC}"
+    echo -e "${BLUE}=====================${NC}"
+    echo ""
+}
+
+# Function to display menu
+display_menu() {
+    echo -e "${GREEN}Menu:${NC}"
+    echo "1. Capture IMSI numbers"
+    echo "2. Backup IMSI data"
+    echo "3. Scan GSM frequencies"
+    echo "4. Capture GSM packets"
+    echo "5. Monitor GSM frequencies"
+    echo "6. Exit"
+    echo ""
+}
+
+# Function to handle invalid options
+handle_invalid_option() {
+    echo -e "${RED}Invalid choice. Please enter a valid option.${NC}"
+}
+
+# Main function
+main() {
+    local choice
+    
+    while true; do
+        clear
+        display_title
+        display_menu
+        read -p "Enter your choice: " choice
+        case $choice in
+            1)
+                capture_imsi >> imsi_data.txt
+                echo -e "${GREEN}IMSI numbers captured.${NC}"
+                ;;
+            2)
+                backup_data
+                ;;
+            3)
+                echo -e "${YELLOW}Select a tool to scan GSM frequencies:${NC}"
+                echo "a. kalibrate-hackrf"
+                echo "b. Uniden radio"
+                read -p "Enter your choice: " tool_choice
+                case $tool_choice in
+                    a)
+                        echo -e "${YELLOW}Running kalibrate-hackrf to scan GSM frequencies...${NC}"
+                        # Add command to run kalibrate-hackrf here
+                        ;;
+                    b)
+                        echo -e "${YELLOW}Scanning GSM frequencies with Uniden radio...${NC}"
+                        # Add command to use Uniden radio here
+                        ;;
+                    *)
+                        handle_invalid_option
+                        ;;
+                esac
+                ;;
+            4)
+                # Capture GSM packets submenu
+                submenu_capture_packets
+                ;;
+            5)
+                # Monitor GSM frequencies submenu
+                submenu_monitor_frequencies
+                ;;
+            6)
+                echo -e "${YELLOW}Exiting...${NC}"
+                exit 0
+                ;;
+            *)
+                handle_invalid_option
+                ;;
+        esac
+        read -p "Press Enter to continue..."
+    done
+}
+
+# Submenu for capturing GSM packets
+submenu_capture_packets() {
+    echo -e "${GREEN}Submenu: Capture GSM packets${NC}"
+    echo "1. Wireshark"
+    echo "2. tcpdump"
+    read -p "Enter your choice: " sub_choice
+    
+    case $sub_choice in
+        1)
+            echo -e "${YELLOW}Capturing GSM packets with Wireshark...${NC}"
+            sudo wireshark -k -Y '!icmp && gsmtap' -i lo
+            ;;
+        2)
+            echo -e "${YELLOW}Capturing GSM packets with tcpdump...${NC}"
+            # Add command to use tcpdump here
+            ;;
+        *)
+            handle_invalid_option
+            ;;
+    esac
+}
+
+# Submenu for monitoring GSM frequencies
+submenu_monitor_frequencies() {
+    echo -e "${GREEN}Submenu: Monitor GSM frequencies${NC}"
+    echo "1. grgsm_livemon"
+    echo "2. GNU Radio Companion"
+    read -p "Enter your choice: " sub_choice
+    
+    case $sub_choice in
+        1)
+            echo -e "${YELLOW}Monitoring GSM frequencies with grgsm_livemon...${NC}"
+            # Add command to use grgsm_livemon here
+            ;;
+        2)
+            echo -e "${YELLOW}Monitoring GSM frequencies with GNU Radio Companion...${NC}"
+            # Add command to use GNU Radio Companion here
+            ;;
+        *)
+            handle_invalid_option
+            ;;
+    esac
+}
+
+# Run the main function
+main

@@ -1,0 +1,269 @@
+#!/bin/bash
+
+# Color codes for enhancing output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# Function to display the main menu
+display_main_menu() {
+    clear
+    echo -e "${BLUE}======================= Main Menu ========================${NC}"
+    echo -e " ${YELLOW}1.${NC} Install and Configure Mr.Holmes"
+    echo -e " ${YELLOW}2.${NC} Run or Stop Mr.Holmes"
+    echo -e " ${YELLOW}3.${NC} Install and Configure MrPhish"
+    echo -e " ${YELLOW}4.${NC} Run or Stop MrPhish"
+    echo -e " ${YELLOW}5.${NC} Install and Configure fikrado.py"
+    echo -e " ${YELLOW}6.${NC} Run or Stop fikrado.py"
+    echo -e " ${YELLOW}7.${NC} Install and Configure FB-BRUTEFORCE"
+    echo -e " ${YELLOW}8.${NC} Run or Stop FB-BRUTEFORCE"
+    echo -e " ${YELLOW}9.${NC} Install and Configure Impulse"
+    echo -e "${YELLOW}10.${NC} Run or Stop Impulse"
+    echo -e "${YELLOW}11.${NC} Install and Configure PhoneInfoga"
+    echo -e "${YELLOW}12.${NC} Run or Stop PhoneInfoga"
+    echo -e "${YELLOW}13.${NC} Install and Configure SET (Social-Engineer Toolkit)"
+    echo -e "${YELLOW}14.${NC} Run or Stop SET (Social-Engineer Toolkit)"
+    echo -e "${YELLOW}15.${NC} Install and Configure Metasploit"
+    echo -e "${YELLOW}16.${NC} Run or Stop Metasploit"
+    echo -e "${YELLOW}17.${NC} Install and Configure Tiger"
+    echo -e "${YELLOW}18.${NC} Run or Stop Tiger"
+    echo -e "${YELLOW}19.${NC} Install and Configure Lynis"
+    echo -e "${YELLOW}20.${NC} Run or Stop Lynis"
+    echo -e "${YELLOW}21.${NC} Install and Configure Maltego"
+    echo -e "${YELLOW}22.${NC} Run or Stop Maltego"
+    echo -e "${YELLOW}23.${NC} Install and Configure MISP"
+    echo -e "${YELLOW}24.${NC} Run or Stop MISP"
+    echo -e "${YELLOW}25.${NC} Install and Configure MITRE ATT&CK Framework"
+    echo -e "${YELLOW}26.${NC} Run or Stop MITRE ATT&CK Framework"
+    echo -e "${YELLOW}27.${NC} Install and Configure ClamAV"
+    echo -e "${YELLOW}28.${NC} Run or Stop ClamAV"
+    echo -e "${YELLOW}29.${NC} Install and Configure Tiger"
+    echo -e "${YELLOW}30.${NC} Run or Stop Tiger"
+    echo -e "${YELLOW}31.${NC} Install and Configure Lynis"
+    echo -e "${YELLOW}32.${NC} Run or Stop Lynis"
+    echo -e "${YELLOW}33.${NC} Exit"
+    echo -e "${BLUE}=============================================================${NC}"
+}
+
+# Function to install and configure Mr.Holmes
+install_and_configure_mrholmes() {
+    # Add installation steps for Mr.Holmes here
+    echo -e "${GREEN}Mr.Holmes setup complete.${NC}"
+    read -n 1 -s -r -p "Press any key to continue..."
+}
+
+# Function to run or stop Mr.Holmes
+run_or_stop_mrholmes() {
+    # Add code to run or stop Mr.Holmes here
+}
+
+# Function to install and configure MrPhish
+install_and_configure_mrphish() {
+    # Add installation steps for MrPhish here
+    echo -e "${GREEN}MrPhish setup complete.${NC}"
+    read -n 1 -s -r -p "Press any key to continue..."
+}
+
+# Function to run or stop MrPhish
+run_or_stop_mrphish() {
+    # Add code to run or stop MrPhish here
+}
+
+# Function to install and configure fikrado.py
+install_and_configure_fikrado() {
+    # Add installation steps for fikrado.py here
+    echo -e "${GREEN}fikrado.py setup complete.${NC}"
+    read -n 1 -s -r -p "Press any key to continue..."
+}
+
+# Function to run or stop fikrado.py
+run_or_stop_fikrado() {
+    # Add code to run or stop fikrado.py here
+}
+
+# Function to install and configure FB-BRUTEFORCE
+install_and_configure_fb_bruteforce() {
+    # Add installation steps for FB-BRUTEFORCE here
+    echo -e "${GREEN}FB-BRUTEFORCE setup complete.${NC}"
+    read -n 1 -s -r -p "Press any key to continue..."
+}
+
+# Function to run or stop FB-BRUTEFORCE
+run_or_stop_fb_bruteforce() {
+    # Add code to run or stop FB-BRUTEFORCE here
+}
+
+# Function to install and configure Impulse
+install_and_configure_impulse() {
+    # Add installation steps for Impulse here
+    echo -e "${GREEN}Impulse setup complete.${NC}"
+    read -n 1 -s -r -p "Press any key to continue..."
+}
+
+# Function to run or stop Impulse
+run_or_stop_impulse() {
+    # Add code to run or stop Impulse here
+}
+
+# Function to install and configure PhoneInfoga
+install_and_configure_phoneinfoga() {
+    # Add installation steps for PhoneInfoga here
+    echo -e "${GREEN}PhoneInfoga setup complete.${NC}"
+    read -n 1 -s -r -p "Press any key to continue..."
+}
+
+# Function to run or stop PhoneInfoga
+run_or_stop_phoneinfoga() {
+    # Add code to run or stop PhoneInfoga here
+}
+
+# Function to install and configure SET (Social-Engineer Toolkit)
+install_and_configure_set() {
+    # Add installation steps for SET here
+    echo -e "${GREEN}SET setup complete.${NC}"
+    read -n 1 -s -r -p "Press any key to continue..."
+}
+
+# Function to run or stop SET (Social-Engineer Toolkit)
+run_or_stop_set() {
+    # Add code to run or stop SET here
+}
+
+# Function to install and configure Metasploit
+install_and_configure_metasploit() {
+    # Add installation steps for Metasploit here
+    echo -e "${GREEN}Metasploit setup complete.${NC}"
+    read -n 1 -s -r -p "Press any key to continue..."
+}
+
+# Function to run or stop Metasploit
+run_or_stop_metasploit() {
+    # Add code to run or stop Metasploit here
+}
+
+# Function to install and configure Tiger
+install_and_configure_tiger() {
+    # Add installation steps for Tiger here
+    echo -e "${GREEN}Tiger setup complete.${NC}"
+    read -n 1 -s -r -p "Press any key to continue..."
+}
+
+# Function to run or stop Tiger
+run_or_stop_tiger() {
+    # Add code to run or stop Tiger here
+}
+
+# Function to install and configure Lynis
+install_and_configure_lynis() {
+    # Add installation steps for Lynis here
+    echo -e "${GREEN}Lynis setup complete.${NC}"
+    read -n 1 -s -r -p "Press any key to continue..."
+}
+
+# Function to run or stop Lynis
+run_or_stop_lynis() {
+    # Add code to run or stop Lynis here
+}
+
+# Function to install and configure Maltego
+install_and_configure_maltego() {
+    # Add installation steps for Maltego here
+    echo -e "${GREEN}Maltego setup complete.${NC}"
+    read -n 1 -s -r -p "Press any key to continue..."
+}
+
+# Function to run or stop Maltego
+run_or_stop_maltego() {
+    # Add code to run or stop Maltego here
+}
+
+# Function to install and configure MISP
+install_and_configure_misp() {
+    # Add installation steps for MISP here
+    echo -e "${GREEN}MISP setup complete.${NC}"
+    read -n 1 -s -r -p "Press any key to continue..."
+}
+
+# Function to run or stop MISP
+run_or_stop_misp() {
+    # Add code to run or stop MISP here
+}
+
+# Function to install and configure MITRE ATT&CK Framework
+install_and_configure_mitre_attack_framework() {
+    # Add installation steps for MITRE ATT&CK Framework here
+    echo -e "${GREEN}MITRE ATT&CK Framework setup complete.${NC}"
+    read -n 1 -s -r -p "Press any key to continue..."
+}
+
+# Function to run or stop MITRE ATT&CK Framework
+run_or_stop_mitre_attack_framework() {
+    # Add code to run or stop MITRE ATT&CK Framework here
+}
+
+# Function to install and configure ClamAV
+install_and_configure_clamav() {
+    # Add installation steps for ClamAV here
+    echo -e "${GREEN}ClamAV setup complete.${NC}"
+    read -n 1 -s -r -p "Press any key to continue..."
+}
+
+# Function to run or stop ClamAV
+run_or_stop_clamav() {
+    # Add code to run or stop ClamAV here
+}
+
+# Function to handle user input for main menu choices
+handle_main_menu_choice() {
+    local choice
+    read -p "Enteryour choice: " choice
+    case $choice in
+        1) install_and_configure_mrholmes ;;
+        2) run_or_stop_mrholmes ;;
+        3) install_and_configure_mrphish ;;
+        4) run_or_stop_mrphish ;;
+        5) install_and_configure_fikrado ;;
+        6) run_or_stop_fikrado ;;
+        7) install_and_configure_fb_bruteforce ;;
+        8) run_or_stop_fb_bruteforce ;;
+        9) install_and_configure_impulse ;;
+        10) run_or_stop_impulse ;;
+        11) install_and_configure_phoneinfoga ;;
+        12) run_or_stop_phoneinfoga ;;
+        13) install_and_configure_set ;;
+        14) run_or_stop_set ;;
+        15) install_and_configure_metasploit ;;
+        16) run_or_stop_metasploit ;;
+        17) install_and_configure_tiger ;;
+        18) run_or_stop_tiger ;;
+        19) install_and_configure_lynis ;;
+        20) run_or_stop_lynis ;;
+        21) install_and_configure_maltego ;;
+        22) run_or_stop_maltego ;;
+        23) install_and_configure_misp ;;
+        24) run_or_stop_misp ;;
+        25) install_and_configure_mitre_attack_framework ;;
+        26) run_or_stop_mitre_attack_framework ;;
+        27) install_and_configure_clamav ;;
+        28) run_or_stop_clamav ;;
+        29) install_and_configure_tiger ;;
+        30) run_or_stop_tiger ;;
+        31) install_and_configure_lynis ;;
+        32) run_or_stop_lynis ;;
+        33) echo "Exiting..."; exit ;;
+        *) echo "Invalid choice. Please enter a number between 1 and 33."; sleep 2 ;;
+    esac
+}
+
+# Main function to run the script
+main() {
+    while true; do
+        display_main_menu
+        handle_main_menu_choice
+    done
+}
+
+# Start the script
+main

@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# Define API keys
+phoneapis_key="YOUR_NUMVERIFY_API_KEY"
+IPStackAPI_key="YOUR_IPSTACK_API_KEY"
+gmap_key="YOUR_GOOGLE_MAPS_API_KEY"
+
+# Function to run Shodan search
+run_shodan_search() {
+    local query="$1"
+    local url="https://api.shodan.io/shodan/host/search?key=$shodan_api_key&query=$query"
+    echo "Running Shodan search for: $query"
+    curl -s "$url"
+}
+
+# Function to run Numverify API
+run_numverify_api() {
+    local phone_number="$1"
+    local url="http://apilayer.net/api/validate?access_key=$phoneapis_key&number=$phone_number"
+    echo "Running Numverify API for phone number: $phone_number"
+    curl -s "$url"
+}
+
+# Function to run IPStack API
+run_ipstack_api() {
+    local ip_address="$1"
+    local url="http://api.ipstack.com/$ip_address?access_key=$IPStackAPI_key"
+    echo "Running IPStack API for IP address: $ip_address"
+    curl -s "$url"
+}
+
+# Function to run Google Maps API
+run_google_maps_api() {
+    local place="$1"
+    local url="https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=$place&key=$gmap_key"
+    echo "Running Google Maps API for place: $place"
+    curl -s "$url"
+}
+
+# Main function to execute the script
+main() {
+    # Example usage of Shodan search
+    run_shodan_search "apache"
+
+    # Example usage of Numverify API
+    run_numverify_api "PHONE_NUMBER_HERE"
+
+    # Example usage of IPStack API
+    run_ipstack_api "IP_ADDRESS_HERE"
+
+    # Example usage of Google Maps API
+    run_google_maps_api "PLACE_HERE"
+}
+
+# Execute the main function
+main

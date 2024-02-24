@@ -1,0 +1,23 @@
+# Use a base Node.js image
+FROM node:14-alpine as build-stage
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the frontend code into the container
+COPY frontend /app
+
+# Install dependencies and build the frontend
+RUN npm install && npm run build
+
+# Use a lightweight web server to serve the frontend
+FROM nginx:alpine
+
+# Copy the built frontend files into the nginx server
+COPY --from=build-stage /app/build /usr/share/nginx/html
+
+# Expose port 80
+EXPOSE 80
+
+# Command to start the nginx server
+CMD ["nginx", "-g", "daemon off;"]

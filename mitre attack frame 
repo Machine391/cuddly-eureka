@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# Function to search for MITRE ATT&CK techniques and tactics
+search_mitre_attack() {
+    echo -e "\e[1;34mSearching MITRE ATT&CK framework...\e[0m"
+    read -p $'\e[1;33mEnter threat actor or group name: \e[0m' threat_actor
+    # Use curl or a similar tool to fetch data from the MITRE ATT&CK API
+    # Example command: curl -s "https://attack.mitre.org/tactics/TA0001/"
+    # Display the relevant techniques and tactics associated with the threat actor or group
+}
+
+# Main function to start the script
+main() {
+    echo -e "\e[1;35m==== Cybersecurity Toolbox ====\e[0m"
+    while true; do
+        echo -e "\e[1;36m1. Install and Configure Nmap (Vulnerability Scanning)\e[0m"
+        echo -e "\e[1;36m2. Install and Configure Snort (Intrusion Detection)\e[0m"
+        echo -e "\e[1;36m3. Install and Configure ELK Stack (Log Analysis)\e[0m"
+        echo -e "\e[1;36m4. Install and Configure VirusTotal CLI (Threat Intelligence Gathering)\e[0m"
+        echo -e "\e[1;36m5. Harden System Configuration\e[0m"
+        echo -e "\e[1;36m6. Configure Multi-Factor Authentication\e[0m"
+        echo -e "\e[1;36m7. Install and Configure Common Cybersecurity Tools\e[0m"
+        echo -e "\e[1;36m8. Search MITRE ATT&CK Framework\e[0m"
+        echo -e "\e[1;36m9. Quit\e[0m"
+        read -p $'\e[1;33mEnter your choice: \e[0m' choice
+        case $choice in
+            1) install_and_configure_nmap;;
+            2) install_and_configure_snort;;
+            3) install_and_configure_elk_stack;;
+            4) install_and_configure_virustotal_cli;;
+            5) harden_system_configuration;;
+            6) configure_multi_factor_authentication;;
+            7) install_and_configure_common_tools;;
+            8) search_mitre_attack;;
+            9) echo -e "\e[1;35mExiting...\e[0m"; break;;
+            *) echo -e "\e[1;31mInvalid choice. Please enter a valid option.\e[0m";;
+        esac
+    done
+}
+
+# Execute the main function
+main

@@ -1,0 +1,145 @@
+#!/bin/bash
+# Script by James Dupell
+# Date: 2024-02-15
+
+# Function to install necessary dependencies
+install_dependencies() {
+    echo "=== Installing necessary dependencies ==="
+    sudo apt-get update
+    sudo apt-get install -y tshark wireshark nmap snort setoolkit hashcat \
+                            john cherrytree misp ufw rsyslog volatility \
+                            autopsy scalpel openvas metasploit-framework \
+                            nikto dirb lynis
+}
+
+# Function to configure firewall
+configure_firewall() {
+    echo "=== Configuring firewall ==="
+    sudo ufw allow ssh
+    sudo ufw enable
+}
+
+# Function to configure logging
+configure_logging() {
+    echo "=== Configuring logging ==="
+    sudo apt-get install -y rsyslog
+    sudo mkdir -p /var/log/custom
+    sudo touch /var/log/custom/custom.log
+    sudo chmod 644 /var/log/custom/custom.log
+    sudo chown syslog:adm /var/log/custom/custom.log
+    sudo echo "local0.* /var/log/custom/custom.log" >> /etc/rsyslog.conf
+    sudo systemctl restart rsyslog
+}
+
+# Function to set up incident response toolkit
+setup_incident_response_toolkit() {
+    echo "=== Setting up incident response toolkit ==="
+    sudo apt-get install -y volatility
+    sudo apt-get install -y autopsy
+    sudo apt-get install -y scalpel
+}
+
+# Function to create threat intelligence report
+create_threat_intelligence_report() {
+    echo "=== Creating threat intelligence report ==="
+    # Add commands to generate threat intelligence report
+}
+
+# Function to perform malware detection using ClamAV
+perform_malware_detection() {
+    echo "=== Performing malware detection using ClamAV ==="
+    sudo apt-get install -y clamav
+    sudo freshclam
+    sudo clamscan -r / 2>/dev/null | grep -v "OK$"
+}
+
+# Function to perform vulnerability scanning using OpenVAS
+perform_vulnerability_scanning() {
+    echo "=== Performing vulnerability scanning using OpenVAS ==="
+    sudo apt-get install -y openvas
+    sudo apt-get install -y greenbone-security-assistant
+    sudo apt-get install -y gvm
+    sudo apt-get install -y gvm-tools
+    sudo gvm-setup
+    sudo systemctl restart openvas-gsa
+    sudo systemctl restart openvas-scanner
+}
+
+# Function to perform web application scanning using Nikto
+perform_web_application_scanning() {
+    echo "=== Performing web application scanning using Nikto ==="
+    sudo apt-get install -y nikto
+    nikto -h localhost
+}
+
+# Function to perform directory brute-forcing using Dirb
+perform_directory_brute_forcing() {
+    echo "=== Performing directory brute-forcing using Dirb ==="
+    sudo apt-get install -y dirb
+    dirb http://localhost
+}
+
+# Function to perform system auditing using Lynis
+perform_system_auditing() {
+    echo "=== Performing system auditing using Lynis ==="
+    sudo apt-get install -y lynis
+    sudo lynis audit system
+}
+
+# Function to perform social engineering attacks using SET
+perform_social_engineering_attacks() {
+    echo "=== Performing social engineering attacks using SET ==="
+    sudo apt-get install -y setoolkit
+    sudo setoolkit
+}
+
+# Function to display menu options
+display_menu() {
+    echo "===== Cybersecurity Toolkit Menu ====="
+    echo "1. Install dependencies"
+    echo "2. Configure firewall"
+    echo "3. Configure logging"
+    echo "4. Set up incident response toolkit"
+    echo "5. Create threat intelligence report"
+    echo "6. Perform malware detection using ClamAV"
+    echo "7. Perform vulnerability scanning using OpenVAS"
+    echo "8. Perform web application scanning using Nikto"
+    echo "9. Perform directory brute-forcing using Dirb"
+    echo "10. Perform system auditing using Lynis"
+    echo "11. Perform social engineering attacks using SET"
+    echo "12. Exit"
+    echo "======================================"
+}
+
+# Function to execute selected option
+execute_option() {
+    local choice
+    while true; do
+        read -p "Enter your choice: " choice
+        case $choice in
+            1) install_dependencies;;
+            2) configure_firewall;;
+            3) configure_logging;;
+            4) setup_incident_response_toolkit;;
+            5) create_threat_intelligence_report;;
+            6) perform_malware_detection;;
+            7) perform_vulnerability_scanning;;
+            8) perform_web_application_scanning;;
+            9) perform_directory_brute_forcing;;
+            10) perform_system_auditing;;
+            11) perform_social_engineering_attacks;;
+            12) echo "Exiting..."; exit;;
+            *) echo "Invalid option";;
+        esac
+        display_menu
+    done
+}
+
+# Main function
+main() {
+    display_menu
+    execute_option
+}
+
+# Execute main function
+main

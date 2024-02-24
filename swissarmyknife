@@ -1,0 +1,166 @@
+#!/bin/bash
+
+# Function to display the main menu
+display_menu() {
+    echo "Select an option:"
+    echo "1) View available tools"
+    echo "2) Download and install tools"
+    echo "3) Exit"
+}
+
+# Function to display the available tools
+display_available_tools() {
+    echo "Available tools:"
+    echo "1) Metasploit Framework"
+    echo "2) Nmap"
+    echo "3) Wireshark"
+    echo "4) OWASP ZAP"
+    echo "5) BeEF Project"
+    echo "6) Burp Suite"
+    echo "7) Kismet"
+    echo "8) WiGLE WiFi"
+    echo "9) Social-Engineer Toolkit"
+    echo "10) Exploit Database"
+    echo "11) TheHarvester"
+    echo "12) SpiderFoot"
+    echo "13) Pipl"
+    echo "14) PhoneInfoga"
+    echo "15) Maskphish"
+    echo "16) Mr. Holmes"
+    echo "17) Back to main menu"
+}
+
+# Function to handle the selected option
+handle_option() {
+    read -p "Enter the option number: " option
+    case $option in
+        1) display_available_tools;;
+        2) download_and_install;;
+        3) echo "Exiting..."; exit 0;;
+        *) echo "Invalid option";;
+    esac
+}
+
+# Function to handle the download and installation of selected tools
+download_and_install() {
+    while true; do
+        display_available_tools
+        read -p "Enter the tool number to download and install (or enter 17 to go back to the main menu): " tool_option
+        case $tool_option in
+            1) install_metasploit;;
+            2) install_nmap;;
+            3) install_wireshark;;
+            4) install_owasp_zap;;
+            5) install_beef;;
+            6) install_burp_suite;;
+            7) install_kismet;;
+            8) install_wigle_wifi;;
+            9) install_social_engineer_toolkit;;
+            10) install_exploitdb;;
+            11) install_theharvester;;
+            12) install_spiderfoot;;
+            13) install_pipl;;
+            14) install_phoneinfoga;;
+            15) install_maskphish;;
+            16) install_mr_holmes;;
+            17) break;;
+            *) echo "Invalid option";;
+        esac
+    done
+}
+
+# Function to install Metasploit Framework
+install_metasploit() {
+    git clone https://github.com/rapid7/metasploit-framework.git && cd metasploit-framework && bundle install || handle_error
+}
+
+# Function to install Nmap
+install_nmap() {
+    git clone https://github.com/nmap/nmap.git && cd nmap && ./configure && make && make install || handle_error
+}
+
+# Function to install Wireshark
+install_wireshark() {
+    sudo apt-get install wireshark tshark || handle_error
+}
+
+# Function to install OWASP ZAP
+install_owasp_zap() {
+    sudo apt-get install zaproxy || handle_error
+}
+
+# Function to install BeEF Project
+install_beef() {
+    git clone https://github.com/beefproject/beef.git || handle_error
+}
+
+# Function to install Burp Suite
+install_burp_suite() {
+    sudo apt-get install burpsuite || handle_error
+}
+
+# Function to install Kismet
+install_kismet() {
+    sudo apt-get install kismet || handle_error
+}
+
+# Function to install WiGLE WiFi
+install_wigle_wifi() {
+    git clone https://github.com/wiglenet/wiglewifi || handle_error
+}
+
+# Function to install Social-Engineer Toolkit
+install_social_engineer_toolkit() {
+    git clone https://github.com/trustedsec/social-engineer-toolkit.git && cd social-engineer-toolkit && sudo python setup.py install || handle_error
+}
+
+# Function to install Exploit Database
+install_exploitdb() {
+    git clone https://github.com/offensive-security/exploitdb.git || handle_error
+}
+
+# Function to install TheHarvester
+install_theharvester() {
+    git clone https://github.com/laramies/theHarvester.git || handle_error
+}
+
+# Function to install SpiderFoot
+install_spiderfoot() {
+    git clone https://github.com/smicallef/spiderfoot.git && cd spiderfoot && sudo pip install -r requirements.txt || handle_error
+}
+
+# Function to install Pipl
+install_pipl() {
+    sudo apt-get install pipl || handle_error
+}
+
+# Function to install PhoneInfoga
+install_phoneinfoga() {
+    git clone https://github.com/sundowndev/PhoneInfoga.git && cd PhoneInfoga && bash install.sh || handle_error
+}
+
+# Function to install Maskphish
+install_maskphish() {
+    git clone https://github.com/jaykali/maskphish.git && cd maskphish && bash install.sh || handle_error
+}
+
+# Function to install Mr. Holmes
+install_mr_holmes() {
+    git clone https://github.com/calebstewart/mrholmes.git && cd mrholmes && sudo bash install.sh || handle_error
+}
+
+# Function to handle errors
+handle_error() {
+    echo "An error occurred during installation. Please check your internet connection and try again."
+}
+
+# Main function
+main() {
+    while true; do
+        display_menu
+        handle_option
+    done
+}
+
+# Call the main function
+main

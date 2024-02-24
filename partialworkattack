@@ -1,0 +1,18 @@
+in
+            1) install_dependencies ;;
+            2) clone_and_configure_mrholmes ;;
+            3) clone_and_configure_mrphish ;;
+            4) clone_and_configure_fikrado ;;
+            5) clone_and_configure_fb_bruteforce ;;
+            6) clone_and_configure_impulse ;;
+            7) clone_and_configure_phoneinfoga ;;
+            8) install_set ;;
+            9) install_metasploit ;;
+            10) echo -e "${GREEN}Exiting...${NC}"; break ;;
+            *) echo -e "${RED}Invalid choice. Please enter a number from 1 to 10.${NC}" ;;
+        esac
+    done
+}
+
+# Execute the main function
+main

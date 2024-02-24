@@ -1,0 +1,113 @@
+#!/bin/bash
+
+# Function to perform vulnerability scanning using Nmap
+perform_vulnerability_scanning() {
+    clear
+    echo "Performing vulnerability scanning..."
+    echo "Choose a scanning method:"
+    echo "1. SYN scan"
+    echo "2. TCP connect scan"
+    read -p "Enter your choice: " choice
+    case $choice in
+        1) sudo nmap -sS target_ip ;;
+        2) sudo nmap -sT target_ip ;;
+        *) echo "Invalid choice. Please enter a valid option." ;;
+    esac
+    read -p "Press Enter to return to the main menu..." -s
+}
+
+# Function to detect intrusions using Suricata
+detect_intrusions() {
+    clear
+    echo "Detecting intrusions..."
+    echo "Choose a detection mode:"
+    echo "1. IDS mode"
+    echo "2. IPS mode"
+    read -p "Enter your choice: " choice
+    case $choice in
+        1) sudo suricata -c /etc/suricata/suricata-ids.yaml -i eth0 ;;
+        2) sudo suricata -c /etc/suricata/suricata-ips.yaml -i eth0 ;;
+        *) echo "Invalid choice. Please enter a valid option." ;;
+    esac
+    read -p "Press Enter to return to the main menu..." -s
+}
+
+# Function to analyze logs using ELK Stack
+analyze_logs() {
+    clear
+    echo "Analyzing logs with ELK Stack..."
+    echo "Choose a log analysis method:"
+    echo "1. Start ELK Stack services"
+    echo "2. Open Kibana dashboard"
+    read -p "Enter your choice: " choice
+    case $choice in
+        1) sudo systemctl start elasticsearch kibana logstash ;;
+        2) xdg-open http://localhost:5601 ;;
+        *) echo "Invalid choice. Please enter a valid option." ;;
+    esac
+    read -p "Press Enter to return to the main menu..." -s
+}
+
+# Function to gather threat intelligence
+gather_threat_intelligence() {
+    clear
+    echo "Gathering threat intelligence..."
+    echo "Choose a method:"
+    echo "1. Scan file with VirusTotal CLI"
+    echo "2. Scan URL with VirusTotal CLI"
+    read -p "Enter your choice: " choice
+    case $choice in
+        1) vt <file_path> ;;
+        2) vt <url> ;;
+        *) echo "Invalid choice. Please enter a valid option." ;;
+    esac
+    read -p "Press Enter to return to the main menu..." -s
+}
+
+# Function to scan files for vulnerabilities
+scan_files() {
+    clear
+    echo "Scanning files for vulnerabilities..."
+    echo "Choose a file scanning method:"
+    echo "1. Use ClamAV"
+    echo "2. Use Lynis"
+    read -p "Enter your choice: " choice
+    case $choice in
+        1) clamscan /path/to/directory ;;
+        2) lynis audit system ;;
+        *) echo "Invalid choice. Please enter a valid option." ;;
+    esac
+    read -p "Press Enter to return to the main menu..." -s
+}
+
+# Main function to start the script
+main() {
+    clear
+    echo "Welcome to the Cybersecurity Toolbox!"
+    while true; do
+        echo -e "\n==== Cybersecurity Toolbox ===="
+        echo "1. Perform Vulnerability Scanning"
+        echo "2. Detect Intrusions"
+        echo "3. Analyze Logs"
+        echo "4. Gather Threat Intelligence"
+        echo "5. Scan Files for Vulnerabilities"
+        echo "6. Harden System Configuration"
+        echo "7. Configure Multi-Factor Authentication"
+        echo "8. Quit"
+        read -p "Enter your choice: " choice
+        case $choice in
+            1) perform_vulnerability_scanning;;
+            2) detect_intrusions;;
+            3) analyze_logs;;
+            4) gather_threat_intelligence;;
+            5) scan_files;;
+            6) echo "Harden system configuration option";;  # Placeholder
+            7) echo "Configure multi-factor authentication option";;  # Placeholder
+            8) clear && echo "Exiting..."; break;;
+            *) echo "Invalid choice. Please enter a valid option.";;
+        esac
+    done
+}
+
+# Execute the main function
+main

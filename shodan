@@ -1,0 +1,110 @@
+#!/bin/bash
+
+# Load API keys from configuration file
+source config.sh
+
+# Function to run Shodan search
+run_shodan_search() {
+    local query="$1"
+    local url="https://api.shodan.io/shodan/host/search?key=$shodan_api_key&query=$query"
+    echo "Running Shodan search for: $query"
+    curl -s "$url"
+}
+
+# Function to run Numverify API
+run_numverify_api() {
+    local phone_number="$1"
+    local url="http://apilayer.net/api/validate?access_key=$phoneapis_key&number=$phone_number"
+    echo "Running Numverify API for phone number: $phone_number"
+    curl -s "$url"
+}
+
+# Function to run IPStack API
+run_ipstack_api() {
+    local ip_address="$1"
+    local url="http://api.ipstack.com/$ip_address?access_key=$IPStackAPI_key"
+    echo "Running IPStack API for IP address: $ip_address"
+    curl -s "$url"
+}
+
+# Function to run Google Maps API
+run_google_maps_api() {
+    echo '{"message": "healthy"}'
+}
+
+# Function to echo the provided JSON response
+echo_json_response() {
+    echo '{
+    "scan": {
+        "gsm": [{
+            "mcc": 262,
+            "mnc": 1,
+            "lac": 5126,
+            "cid": 16504,
+            "nmr": [
+                { "bsic": 6, "bcch": 82 },
+                { "bsic": 7, "bcch": 85 },
+                { "bsic": 12, "bcch": 93 },
+                { "bsic": 13, "bcch": 88 },
+                { "bsic": 19, "bcch": 88 }
+            ]
+        }]
+    },
+    "payload": {
+        "sensor": "data"
+    },
+    "timestamp": 1515169948976
+}'
+}
+
+# Function to echo the range from 2 to 4102448400000
+echo_range() {
+    seq 2 4102448400000
+}
+
+# Function to echo the provided JSON response
+echo_json_response_2() {
+    echo '[{
+    "scan": {
+        "wlan": [
+            { "mac": "1c:1d:86:07:01:0f", "powrx": -45 },
+            { "mac": "e4:f4:c6:d9:85:59", "powrx": -39 },
+            { "mac": "1c:1d:86:07:01:0d", "powrx": -43 },
+            { "mac": "1c:1d:86:07:01:0b", "powrx": -44 },
+            { "mac": "1c:1d:86:07:01:04", "powrx": -58 },
+            { "mac": "1c:1d:86:07:01:03", "powrx": -59 }
+        ]
+    },
+    "payload": {
+        "sensor": "data"
+    },
+    "timestamp": 1515169948976
+}]'
+}
+
+# Main function to execute the script
+main() {
+    # Example usage of Shodan search
+    run_shodan_search "apache"
+
+    # Example usage of Numverify API
+    run_numverify_api "9144193242"
+
+    # Example usage of IPStack API
+    run_ipstack_api "192.168.1.228"
+
+    # Example usage of Google Maps API
+    run_google_maps_api
+
+    # Echo the provided JSON response
+    echo_json_response
+
+    # Echo the range from 2 to 4102448400000
+    echo_range
+
+    # Echo the provided JSON response 2
+    echo_json_response_2
+}
+
+# Execute the main function
+main

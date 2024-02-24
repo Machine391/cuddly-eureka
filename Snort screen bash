@@ -1,0 +1,91 @@
+#!/bin/bash
+
+# Function to check internet connectivity
+check_internet() {
+    echo -e "\e[1;34mChecking internet connectivity...\e[0m"
+    if ping -q -c 1 -W 1 google.com >/dev/null; then
+        echo -e "\e[1;32mInternet is available.\e[0m"
+        return 0
+    else
+        echo -e "\e[1;31mError: No internet connection available.\e[0m"
+        return 1
+    fi
+}
+
+# Function to install and configure Nmap for vulnerability scanning
+install_and_configure_nmap() {
+    echo -e "\e[1;34mInstalling and configuring Nmap...\e[0m"
+    sudo apt update
+    sudo apt install -y nmap
+    # Additional configuration steps for Nmap if needed
+}
+
+# Function to install and configure Snort for intrusion detection
+install_and_configure_snort() {
+    echo -e "\e[1;34mInstalling and configuring Snort...\e[0m"
+    sudo apt update
+    sudo apt install -y snort
+    # Additional configuration steps for Snort if needed
+}
+
+# Function to install and configure ELK Stack for log analysis
+install_and_configure_elk_stack() {
+    echo -e "\e[1;34mInstalling and configuring ELK Stack...\e[0m"
+    # Install Elasticsearch, Logstash, and Kibana
+    # Additional configuration steps for ELK Stack if needed
+}
+
+# Function to install and configure VirusTotal CLI for threat intelligence gathering
+install_and_configure_virustotal_cli() {
+    echo -e "\e[1;34mInstalling and configuring VirusTotal CLI...\e[0m"
+    # Install VirusTotal CLI tool
+    # Additional configuration steps for VirusTotal CLI if needed
+}
+
+# Function to harden system configuration
+harden_system_configuration() {
+    echo -e "\e[1;34mHardening system configuration...\e[0m"
+    # Perform system hardening steps, such as enabling firewall, updating system, etc.
+}
+
+# Function to configure multi-factor authentication
+configure_multi_factor_authentication() {
+    echo -e "\e[1;34mConfiguring multi-factor authentication...\e[0m"
+    # Install and configure multi-factor authentication tools, such as Google Authenticator
+}
+
+# Function to install and configure common cybersecurity tools
+install_and_configure_common_tools() {
+    echo -e "\e[1;34mInstalling and configuring common cybersecurity tools...\e[0m"
+    # Install and configure other common cybersecurity tools, such as Filebeat, Metricbeat, Packetbeat, etc.
+}
+
+# Main function to start the script
+main() {
+    echo -e "\e[1;35m==== Cybersecurity Toolbox ====\e[0m"
+    while true; do
+        echo -e "\e[1;36m1. Install and Configure Nmap (Vulnerability Scanning)\e[0m"
+        echo -e "\e[1;36m2. Install and Configure Snort (Intrusion Detection)\e[0m"
+        echo -e "\e[1;36m3. Install and Configure ELK Stack (Log Analysis)\e[0m"
+        echo -e "\e[1;36m4. Install and Configure VirusTotal CLI (Threat Intelligence Gathering)\e[0m"
+        echo -e "\e[1;36m5. Harden System Configuration\e[0m"
+        echo -e "\e[1;36m6. Configure Multi-Factor Authentication\e[0m"
+        echo -e "\e[1;36m7. Install and Configure Common Cybersecurity Tools\e[0m"
+        echo -e "\e[1;36m8. Quit\e[0m"
+        read -p $'\e[1;33mEnter your choice: \e[0m' choice
+        case $choice in
+            1) install_and_configure_nmap;;
+            2) install_and_configure_snort;;
+            3) install_and_configure_elk_stack;;
+            4) install_and_configure_virustotal_cli;;
+            5) harden_system_configuration;;
+            6) configure_multi_factor_authentication;;
+            7) install_and_configure_common_tools;;
+            8) echo -e "\e[1;35mExiting...\e[0m"; break;;
+            *) echo -e "\e[1;31mInvalid choice. Please enter a valid option.\e[0m";;
+        esac
+    done
+}
+
+# Execute the main function
+main
