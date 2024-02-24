@@ -1,0 +1,1657 @@
+>     system_security_auditing
+>     generate_reports
+>     port_scanning
+>     packet_capture
+>     system_enumeration
+>     shodan_search "YOUR_SHODAN_QUERY_HERE"
+>     # Add more functions or tasks as needed
+> }
+>
+> # Execute the main function
+> main#!/bin/bash
+bash: !/bin/bash: event not found
+>                                                    > # Function to perform system security auditing with Tiger
+> perform_security_audit_with_tiger() {              >     log "Performing system security auditing with Tiger..."
+>     sudo tiger
+> }
+>
+> # Main function to execute the program
+> main() {
+>     login_to_maltego
+>     perform_maltego_task "/path/to/file.csv"
+>     wifi_scanning
+>     cyber_kill_chain_analysis
+>     dns_enumeration
+>     system_security_auditing
+>     generate_reports
+>     port_scanning
+>     packet_capture
+>     system_enumeration
+>     shodan_search "YOUR_SHODAN_QUERY_HERE"
+>     perform_security_audit_with_tiger
+>     # Add more functions or tasks as needed
+> }
+>
+> # Execute the main function
+> main#!/bin/bash
+bash: !/bin/bash: event not found
+>                                                    > # Function to install Snort
+> install_snort() {
+>     log "Installing Snort..."
+>     sudo apt-get install -y snort
+> }
+>
+> # Function to configure Snort
+> configure_snort() {
+>     log "Configuring Snort..."
+>     # Add Snort configuration commands here
+>     sudo cp /etc/snort/snort.conf /etc/snort/snort.conf.backup
+>     sudo cp /etc/snort/snort.conf ~/snort_custom.conf
+>     sudo sed -i 's|# output unified2: filename snort.log, limit 128, nostamp: true|output unified2: filename snort.log, limit 128, nostamp: true|g' ~/snort_custom.conf
+>     sudo sed -i 's|# preprocessor stream5_global: track_tcp yes, track_udp yes, track_icmp no, max_tcp 262144, max_udp 131072, max_active_responses 2, min_response_seconds 5|preprocessor stream5_global: track_tcp yes, track_udp yes, track_icmp no, max_tcp 262144, max_udp 131072, max_active_responses 2, min_response_seconds 5|g' ~/snort_custom.conf
+>     # Add more configuration as needed
+> }
+>
+> # Main function to execute the program
+> main() {
+>     login_to_maltego
+>     perform_maltego_task "/path/to/file.csv"       >     wifi_scanning
+>     cyber_kill_chain_analysis                      >     dns_enumeration
+>     system_security_auditing
+>     generate_reports
+>     port_scanning
+>     packet_capture
+>     system_enumeration
+>     shodan_search "YOUR_SHODAN_QUERY_HERE"
+>     perform_security_audit_with_tiger
+>     install_snort
+>     configure_snort
+>     # Add more functions or tasks as needed
+> }
+>
+> # Execute the main function                        > main#!/bin/bash
+bash: !/bin/bash: event not found                    >
+> # Wiglewifi API key
+> WIGLE_API_KEY="YOUR_WIGLE_API_KEY_HERE"
+>
+> # Function to perform Wi-Fi scanning with Wiglewifi> perform_wifi_scanning_with_wiglewifi() {
+>     log "Performing Wi-Fi scanning with Wiglewifi..."
+>     # Add commands to interact with Wiglewifi API here
+>     # Example: curl -X GET "https://api.wigle.net/api/v2/network/search?onlymine=false" -H "accept: application/json" -H "Authorization: Basic $WIGLE_API_KEY"
+> }
+>
+> # Function to perform Wi-Fi scanning with Kismet
+> perform_wifi_scanning_with_kismet() {
+>     log "Performing Wi-Fi scanning with Kismet..."
+>     # Add commands to interact with Kismet here
+>     # Example: kismet_capture -c wlan0
+> }
+>
+> # Main function to execute the program
+> main() {
+>     login_to_maltego
+>     perform_maltego_task "/path/to/file.csv"
+>     perform_wifi_scanning_with_wiglewifi
+>     perform_wifi_scanning_with_kismet
+>     cyber_kill_chain_analysis
+>     dns_enumeration
+>     system_security_auditing
+>     generate_reports
+>     port_scanning
+>     packet_capture
+>     system_enumeration
+>     shodan_search "YOUR_SHODAN_QUERY_HERE"
+>     perform_security_audit_with_tiger
+>     install_snort
+>     configure_snort
+>     # Add more functions or tasks as needed
+> }
+>
+> # Execute the main function
+> main#!/bin/bash
+bash: !/bin/bash: event not found
+ere
+}
+
+# Function to perform Wi-Fi scanning with Kismet
+perform_wifi_scanning_with_kismet() {
+    log "Performing Wi-Fi scanning with Kismet..."
+    # Implement Wi-Fi scanning with Kismet here
+}
+
+# Function to perform cyber kill chain analysis
+perform_cyber_kill_chain_analysis() {
+    log "Performing cyber kill chain analysis..."
+    # Implement cyber kill chain analysis here
+}
+
+# Function to perform DNS enumeration
+perform_dns_enumeration() {
+    log "Performing DNS enumeration..."
+    # Implement DNS enumeration here
+}                                                                                                         # Function to perform system security auditing
+perform_system_security_auditing() {
+    log "Performing system security auditing..."
+    # Implement system security auditing here
+}
+
+# Function to generate reports
+generate_reports() {
+    log "Generating reports..."
+    # Implement report generation here               }
+                                                     # Function to perform port scanning
+perform_port_scanning() {
+    log "Performing port scanning..."
+    # Implement port scanning here
+}
+
+# Function to perform packet capture
+perform_packet_capture() {
+    log "Performing packet capture..."
+    # Implement packet capture here
+}
+
+# Function to perform system enumeration
+perform_system_enumeration() {
+    log "Performing system enumeration..."               # Implement system enumeration here
+}
+
+# Function to search Shodan
+search_shodan() {
+    local query="$1"
+    log "Searching Shodan for: $query"
+    # Implement Shodan search here
+}
+
+# Function to perform security audit with Tiger
+perform_security_audit_with_tiger() {
+    log "Performing security audit with Tiger..."
+    # Implement security audit with Tiger here
+}
+
+# Function to install Snort
+install_snort() {
+    log "Installing Snort..."
+    sudo apt-get install -y snort
+}
+
+# Function to configure Snort
+configure_snort() {
+    log "Configuring Snort..."
+    # Implement Snort configuration here             }
+
+# Main function to execute the program               main() {
+    login_to_maltego
+    perform_maltego_task "/path/to/file.csv"
+    perform_wifi_scanning_with_wiglewifi
+    perform_wifi_scanning_with_kismet                    perform_cyber_kill_chain_analysis
+    perform_dns_enumeration                              perform_system_security_auditing
+    generate_reports
+    perform_port_scanning
+    perform_packet_capture
+    perform_system_enumeration
+    search_shodan "YOUR_SHODAN_QUERY_HERE"
+    perform_security_audit_with_tiger
+    install_snort                                        configure_snort
+    # Add more functions or tasks as needed          }
+
+# Execute the main function
+main>
+> # Maltego login credentials
+> MALTEGO_USERNAME="jimdupell10@gmail.com"
+> MALTEGO_PASSWORD="Watitdo13$$"
+>                                                    > # Wiglewifi API key
+> WIGLE_API_KEY="YOUR_WIGLE_API_KEY_HERE"            >
+> # Function to log messages
+> log() {
+>     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1"
+> }
+>
+> # Function to login to Maltego
+> login_to_maltego() {                               >     log "Logging in to Maltego..."
+>     # Implement Maltego login here                 > }
+>
+> # Function to perform a specific Maltego task
+> perform_maltego_task() {
+>     local file_path="$1"
+>     log "Performing Maltego task: Importing file $file_path"                                            >     # Implement Maltego task execution here        > }
+>                                                    > # Function to perform Wi-Fi scanning with Wiglewifi> perform_wifi_scanning_with_wiglewifi() {
+>     log "Performing Wi-Fi scanning with Wiglewifi..."
+>     # Implement Wi-Fi scanning with Wiglewifi API here
+> }
+>
+> # Function to perform Wi-Fi scanning with Kismet
+> perform_wifi_scanning_with_kismet() {
+>     log "Performing Wi-Fi scanning with Kismet..."
+>     # Implement Wi-Fi scanning with Kismet here
+> }
+>                                                    > # Function to perform cyber kill chain analysis
+> perform_cyber_kill_chain_analysis() {
+>     log "Performing cyber kill chain analysis..."
+>     # Implement cyber kill chain analysis here
+> }
+>
+> # Function to perform DNS enumeration
+> perform_dns_enumeration() {
+>     log "Performing DNS enumeration..."
+>     # Implement DNS enumeration here
+> }                                                  >
+> # Function to perform system security auditing
+> perform_system_security_auditing() {
+>     log "Performing system security auditing..."
+>     # Implement system security auditing here
+> }
+>
+> # Function to generate reports
+> generate_reports() {                               >     log "Generating reports..."
+>     # Implement report generation here             > }
+>
+> # Function to perform port scanning
+> perform_port_scanning() {
+>     log "Performing port scanning..."
+>     # Implement port scanning here
+> }
+>                                                    > # Function to perform packet capture               > perform_packet_capture() {
+>     log "Performing packet capture..."             >     # Implement packet capture here
+> }
+>
+> # Function to perform system enumeration
+> perform_system_enumeration() {
+>     log "Performing system enumeration..."
+>     # Implement system enumeration here
+> }
+>
+> # Function to search Shodan
+> search_shodan() {
+>     local query="$1"
+>     log "Searching Shodan for: $query"
+>     # Implement Shodan search here
+> }                                                  >
+> # Function to perform security audit with Tiger
+> perform_security_audit_with_tiger() {
+>     log "Performing security audit with Tiger..."
+>     # Implement security audit with Tiger here
+> }
+>
+> # Function to install Snort
+> install_snort() {
+>     log "Installing Snort..."
+>     sudo apt-get install -y snort
+> }
+>
+> # Function to configure Snort
+> configure_snort() {
+>     log "Configuring Snort..."
+>     # Implement Snort configuration here
+> }
+>
+> # Main function to execute the program
+> main() {
+>     login_to_maltego
+>     perform_maltego_task "/path/to/file.csv"
+>     perform_wifi_scanning_with_wiglewifi
+>     perform_wifi_scanning_with_kismet
+>     perform_cyber_kill_chain_analysis              >     perform_dns_enumeration
+>     perform_system_security_auditing               >     generate_reports
+>     perform_port_scanning                          >     perform_packet_capture
+>     perform_system_enumeration
+>     search_shodan "YOUR_SHODAN_QUERY_HERE"
+>     perform_security_audit_with_tiger
+>     install_snort
+>     configure_snort
+>     # Add more functions or tasks as needed
+> }
+>
+> # Execute the main function
+> main#!/bin/bash
+bash: !/bin/bash: event not found
+>                                                    > # Function to log messages
+> log() {
+>     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1"       > }
+>
+> # Clone ChatGPT repository
+> log "Cloning ChatGPT repository..."                > git clone https://github.com/username/ChatGPT.git  > log "ChatGPT repository cloned successfully."
+>                                                    > # Execute ChatGPT script
+> log "Executing ChatGPT script..."
+> cd ChatGPT
+> python chatgpt.py
+> log "ChatGPT script executed."
+>
+> # Clone OSINTGPT repository
+> log "Cloning OSINTGPT repository..."
+> git clone https://github.com/username/OSINTGPT.git
+> log "OSINTGPT repository cloned successfully."
+>
+> # Execute OSINTGPT script
+> log "Executing OSINTGPT script..."
+> cd OSINTGPT                                        > python osintgpt.py
+> log "OSINTGPT script executed."
+>
+> # Clone HackerGPT repository
+> log "Cloning HackerGPT repository..."
+> git clone https://github.com/username/HackerGPT.git> log "HackerGPT repository cloned successfully."
+>
+> # Execute HackerGPT script
+> log "Executing HackerGPT script..."
+> cd HackerGPT                                       > python hackergpt.py
+> log "HackerGPT script executed."
+>
+> log "All scripts executed successfully."#!/bin/bashbash: !/bin/bash: event not found
+>
+> # Function to log messages
+> log() {
+>     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1"       > }
+>                                                    > # Clone ChatGPT repository
+> log "Cloning ChatGPT repository..."
+> git clone https://github.com/username/ChatGPT.git
+> log "ChatGPT repository cloned successfully."
+>
+> # Execute ChatGPT script
+> log "Executing ChatGPT script..."
+> cd ChatGPT                                         > python chatgpt.py                                  > log "ChatGPT script executed."
+>                                                    > # Clone OSINTGPT repository
+> log "Cloning OSINTGPT repository..."
+> git clone https://github.com/username/OSINTGPT.git
+> log "OSINTGPT repository cloned successfully."
+>
+> # Execute OSINTGPT script
+> log "Executing OSINTGPT script..."
+> cd OSINTGPT
+> python osintgpt.py
+> log "OSINTGPT script executed."
+>
+> # Clone HackerGPT repository
+> log "Cloning HackerGPT repository..."
+> git clone https://github.com/username/HackerGPT.git> log "HackerGPT repository cloned successfully."    >
+> # Execute HackerGPT script
+> log "Executing HackerGPT script..."
+> cd HackerGPT
+> python hackergpt.py
+> log "HackerGPT script executed."
+>
+> log "All scripts executed successfully."#!/bin/bashbash: !/bin/bash: event not found
+>
+> # Function to log messages
+> log() {
+>     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1"
+> }
+>
+> # Function to clone repository and execute script
+> execute_github_script() {
+>     local repo_url="$1"
+>     local script_name="$2"
+>
+>     # Clone repository
+>     log "Cloning repository from $repo_url..."
+>     git clone "$repo_url" > /dev/null 2>&1
+>     if [ $? -ne 0 ]; then
+>         log "Failed to clone repository from $repo_url. Exiting."                                       >         exit 1
+>     fi                                             >     log "Repository cloned successfully."
+>                                                    >     # Execute script
+>     log "Executing script $script_name..."         >     cd "$(basename "$repo_url" .git)" || exit
+>     if [ -f "$script_name" ]; then
+>         bash "$script_name"                        >         log "Script $script_name executed successfully."
+>     else                                           >         log "Script $script_name not found in the repository. Exiting."                                 >         exit 1
+>     fi
+> }
+>
+> # Execute ChatGPT script
+> execute_github_script "https://github.com/username/ChatGPT.git" "chatgpt.py"
+>
+> # Execute OSINTGPT script
+> execute_github_script "https://github.com/username/OSINTGPT.git" "osintgpt.py"
+>
+> # Execute HackerGPT script
+> execute_github_script "https://github.com/username/HackerGPT.git" "hackergpt.py"
+>                                                    > log "All scripts executed successfully."#!/bin/bashbash: !/bin/bash: event not found
+>
+> # Function to log messages
+> log() {
+>     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1"
+> }
+>
+> # Function to execute Shodan scan
+> execute_shodan_scan() {                            >     log "Executing Shodan scan..."
+>     # Add Shodan scan commands here
+> }
+>
+> # Function to execute Maltego task
+> execute_maltego_task() {
+>     local file_path="$1"                           >     log "Executing Maltego task: Importing file $file_path..."
+>     # Add Maltego task commands here
+> }                                                  >
+> # Function to clone repository and execute script
+> execute_github_script() {
+>     local repo_url="$1"
+>     local script_name="$2"
+>
+>     # Clone repository
+>     log "Cloning repository from $repo_url..."
+>     git clone "$repo_url" > /dev/null 2>&1
+>     if [ $? -ne 0 ]; then
+>         log "Failed to clone repository from $repo_url. Exiting."
+>         exit 1
+>     fi
+>     log "Repository cloned successfully."
+>
+>     # Execute script
+>     log "Executing script $script_name..."
+>     cd "$(basename "$repo_url" .git)" || exit
+>     if [ -f "$script_name" ]; then
+>         bash "$script_name"
+>         log "Script $script_name executed successfully."
+>     else
+>         log "Script $script_name not found in the repository. Exiting."
+>         exit 1
+>     fi
+> }
+>
+> # Execute Shodan scan
+> execute_shodan_scan
+>
+> # Execute Maltego task
+> execute_maltego_task "/path/to/file.csv"
+>
+> # Execute ChatGPT script
+> execute_github_script "https://github.com/username/ChatGPT.git" "chatgpt.py"
+>
+> # Execute OSINTGPT script
+> execute_github_script "https://github.com/username/OSINTGPT.git" "osintgpt.py"
+>
+> # Execute HackerGPT script
+> execute_github_script "https://github.com/username/HackerGPT.git" "hackergpt.py"
+>
+> log "All tasks executed successfully."# Function to execute DNS enumeration
+> execute_dnsenum() {
+>     local domain="$1"
+>     log "Executing DNS enumeration for domain: $domain..."
+>     dnsenum "$domain" > dns_enum_output.txt
+>     log "DNS enumeration completed. Output saved to dns_enum_output.txt"
+> }# Execute DNS enumeration
+> execute_dnsenum "example.com"# Function to generate report
+> generate_report() {                                >     local report_file="recon_report.txt"
+>     log "Generating report..."                     >
+>     # Add commands to gather information for the report
+>     # For example, concatenate the output of various tasks
+>
+>     echo "=== Reconnaissance Report ===" > "$report_file"
+>     echo "" >> "$report_file"
+>     echo "Shodan Scan:" >> "$report_file"
+>     cat shodan_scan_output.txt >> "$report_file"
+>     echo "" >> "$report_file"
+>     echo "Maltego Task:" >> "$report_file"
+>     cat maltego_task_output.txt >> "$report_file"
+>     echo "" >> "$report_file"
+>     echo "DNS Enumeration:" >> "$report_file"      >     cat dns_enum_output.txt >> "$report_file"
+>     echo "" >> "$report_file"                      >     echo "ChatGPT Script Output:" >> "$report_file">     cat chatgpt_output.txt >> "$report_file"
+>     echo "" >> "$report_file"
+>     echo "OSINTGPT Script Output:" >> "$report_file"
+>     cat osintgpt_output.txt >> "$report_file"      >     echo "" >> "$report_file"
+>     echo "HackerGPT Script Output:" >> "$report_file"                                                   >     cat hackergpt_output.txt >> "$report_file"
+>                                                    >     log "Report generated: $report_file"
+> }# Execute tasks                                   > execute_shodan_scan
+> execute_maltego_task "example.csv"
+> execute_dnsenum "example.com"
+> execute_github_script "https://github.com/username/ChatGPT.git" "chatgpt.py"                            > execute_github_script "https://github.com/username/OSINTGPT.git" "osintgpt.py"
+> execute_github_script "https://github.com/username/HackerGPT.git" "hackergpt.py"
+>                                                    > # Generate report
+> generate_report#!/bin/bash
+bash: !/bin/bash: event not found
+>
+> # Maltego login credentials
+> MALTEGO_USERNAME="jimdupell10@gmail.com"           > MALTEGO_PASSWORD="Watitdo13$$"
+>
+> # Function to log messages                         > log() {
+>     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1"
+> }
+>
+> # Function to execute Shodan scan
+> execute_shodan_scan() {
+>     log "Executing Shodan scan..."
+>     # Add Shodan scan commands here
+>     shodan scan > shodan_scan_output.txt           >     log "Shodan scan completed. Output saved to shodan_scan_output.txt"
+> }                                                  >
+> # Function to login to Maltego
+> login_to_maltego() {
+>     log "Logging in to Maltego..."
+>     maltegoce -u "$MALTEGO_USERNAME" -p "$MALTEGO_PASSWORD" > /dev/null 2>&1
+>     if [ $? -eq 0 ]; then
+>         log "Login successful."                    >     else
+>         log "Failed to login to Maltego. Please check your credentials."                                >         exit 1
+>     fi
+> }
+>
+> # Function to perform a specific Maltego task      > perform_maltego_task() {
+>     local file_path="$1"
+>     log "Performing Maltego task: Importing file $file_path"
+>     maltegoce import "$file_path" > /dev/null 2>&1
+>     if [ $? -eq 0 ]; then
+>         log "File $file_path imported successfully."
+>     else
+>         log "Failed to import file $file_path into Maltego."
+>     fi
+> }
+>
+> # Function to execute DNS enumeration
+> execute_dnsenum() {
+>     local domain="$1"
+>     log "Executing DNS enumeration for domain: $domain..."
+>     dnsenum "$domain" > dns_enum_output.txt
+>     log "DNS enumeration completed. Output saved to dns_enum_output.txt"
+> }
+>
+> # Function to generate report
+> generate_report() {
+>     local report_file="recon_report.txt"
+>     log "Generating report..."
+>
+>     echo "=== Reconnaissance Report ===" > "$report_file"
+>     echo "" >> "$report_file"
+>     echo "Shodan Scan:" >> "$report_file"
+>     cat shodan_scan_output.txt >> "$report_file"
+>     echo "" >> "$report_file"
+>     echo "Maltego Task:" >> "$report_file"
+>     cat maltego_task_output.txt >> "$report_file"
+>     echo "" >> "$report_file"
+>     echo "DNS Enumeration:" >> "$report_file"
+>     cat dns_enum_output.txt >> "$report_file"
+>
+>     log "Report generated: $report_file"
+> }
+>
+> # Main function to execute the program
+> main() {
+>     execute_shodan_scan
+>     login_to_maltego
+>     perform_maltego_task "/path/to/file.csv"
+>     execute_dnsenum "example.com"
+>     generate_report
+> }
+>
+> # Execute the main function
+> main#!/bin/bash
+bash: !/bin/bash: event not found
+>
+> # Original script functionalities
+>
+> # Function to check dependencies
+> check_dependencies() {
+>     log "Checking dependencies..."
+>     # Add dependency check commands here
+> }
+>
+> # Function to create directory structure
+> create_directory_structure() {
+>     log "Creating directory structure..."
+>     # Add directory creation commands here
+> }                                                  >
+> # Function to start the program                    > start_program() {
+>     log "Starting program..."
+>     # Add program start commands here
+> }
+>
+> # Function to display the main menu
+> display_main_menu() {
+>     log "Displaying main menu..."
+>     # Add main menu display commands here
+> }
+>
+> # Combined script functionalities
+>
+> # Maltego login credentials
+> MALTEGO_USERNAME="jimdupell10@gmail.com"
+> MALTEGO_PASSWORD="Watitdo13$$"                     >
+> # Function to log messages                         > log() {
+>     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1"
+> }
+>
+> # Function to execute Shodan scan
+> execute_shodan_scan() {                            >     log "Executing Shodan scan..."
+>     # Add Shodan scan commands here
+>     shodan scan > shodan_scan_output.txt           >     log "Shodan scan completed. Output saved to shodan_scan_output.txt"                                 > }
+>                                                    > # Function to login to Maltego
+> login_to_maltego() {
+>     log "Logging in to Maltego..."
+>     maltegoce -u "$MALTEGO_USERNAME" -p "$MALTEGO_PASSWORD" > /dev/null 2>&1                            >     if [ $? -eq 0 ]; then
+>         log "Login successful."
+>     else                                           >         log "Failed to login to Maltego. Please check your credentials."                                >         exit 1
+>     fi
+> }
+>
+> # Function to perform a specific Maltego task
+> perform_maltego_task() {                           >     local file_path="$1"
+>     log "Performing Maltego task: Importing file $file_path"                                            >     maltegoce import "$file_path" > /dev/null 2>&1
+>     if [ $? -eq 0 ]; then
+>         log "File $file_path imported successfully."
+>     else
+>         log "Failed to import file $file_path into Maltego."
+>     fi
+> }                                                  >
+> # Function to execute DNS enumeration
+> execute_dnsenum() {                                >     local domain="$1"
+>     log "Executing DNS enumeration for domain: $domain..."
+>     dnsenum "$domain" > dns_enum_output.txt
+>     log "DNS enumeration completed. Output saved to dns_enum_output.txt"
+> }
+>                                                    > # Function to generate report
+> generate_report() {
+>     local report_file="recon_report.txt"           >     log "Generating report..."
+>
+>     echo "=== Reconnaissance Report ===" > "$report_file"
+>     echo "" >> "$report_file"                      >     echo "Shodan Scan:" >> "$report_file"
+>     cat shodan_scan_output.txt >> "$report_file"
+>     echo "" >> "$report_file"                      >     echo "Maltego Task:" >> "$report_file"
+>     cat maltego_task_output.txt >> "$report_file"
+>     echo "" >> "$report_file"
+>     echo "DNS Enumeration:" >> "$report_file"      >     cat dns_enum_output.txt >> "$report_file"
+>
+>     log "Report generated: $report_file"
+> }
+>
+> # Main function to execute the program
+> main() {
+>     check_dependencies
+>     create_directory_structure
+>     start_program
+>     execute_shodan_scan
+>     login_to_maltego
+>     perform_maltego_task "/path/to/file.csv"
+>     execute_dnsenum "example.com"
+>     generate_report
+> }
+>
+> # Execute the main function
+> main#!/bin/bash
+bash: !/bin/bash: event not found
+>
+> # Original script functionalities
+>
+> # Function to check dependencies
+> check_dependencies() {
+>     log "Checking dependencies..."
+>     # Add dependency check commands here
+> }
+>
+> # Function to create directory structure
+> create_directory_structure() {
+>     log "Creating directory structure..."
+>     # Add directory creation commands here
+> }
+>
+> # Function to start the program
+> start_program() {
+>     log "Starting program..."
+>     # Add program start commands here
+> }
+>
+> # Function to display the main menu
+> display_main_menu() {
+>     log "Displaying main menu..."
+>     # Add main menu display commands here
+> }
+>
+> # Function to execute Shodan scan
+> execute_shodan_scan() {
+>     log "Executing Shodan scan..."
+>     # Add Shodan scan commands here
+>     shodan scan > shodan_scan_output.txt
+>     log "Shodan scan completed. Output saved to shodan_scan_output.txt"
+> }
+>
+> # Function to login to Maltego
+> login_to_maltego() {
+>     log "Logging in to Maltego..."
+>     maltegoce -u "$MALTEGO_USERNAME" -p "$MALTEGO_PASSWORD" > /dev/null 2>&1
+>     if [ $? -eq 0 ]; then
+>         log "Login successful."                    >     else
+>         log "Failed to login to Maltego. Please check your credentials."
+>         exit 1
+>     fi
+> }
+>
+> # Function to perform a specific Maltego task
+> perform_maltego_task() {
+>     local file_path="$1"
+>     log "Performing Maltego task: Importing file $file_path"
+>     maltegoce import "$file_path" > /dev/null 2>&1
+>     if [ $? -eq 0 ]; then
+>         log "File $file_path imported successfully."
+>     else
+>         log "Failed to import file $file_path into Maltego."
+>     fi                                             > }
+>
+> # Function to execute DNS enumeration
+> execute_dnsenum() {
+>     local domain="$1"
+>     log "Executing DNS enumeration for domain: $domain..."
+>     dnsenum "$domain" > dns_enum_output.txt
+>     log "DNS enumeration completed. Output saved to dns_enum_output.txt"
+> }                                                  >
+> # Function to generate report                      > generate_report() {
+>     local report_file="recon_report.txt"
+>     log "Generating report..."
+>
+>     echo "=== Reconnaissance Report ===" > "$report_file"
+>     echo "" >> "$report_file"
+>     echo "Shodan Scan:" >> "$report_file"          >     cat shodan_scan_output.txt >> "$report_file"
+>     echo "" >> "$report_file"                      >     echo "Maltego Task:" >> "$report_file"
+>     cat maltego_task_output.txt >> "$report_file"
+>     echo "" >> "$report_file"
+>     echo "DNS Enumeration:" >> "$report_file"
+>     cat dns_enum_output.txt >> "$report_file"
+>                                                    >     log "Report generated: $report_file"
+> }
+>                                                    > # Function to perform security auditing
+> security_audit() {
+>     log "Performing security audit..."
+>     # Add security audit commands here
+>     sudo lynis audit system
+>     log "Security audit completed."
+> }
+>
+> # Function to set up a database                    > setup_database() {
+>     log "Setting up database..."
+>     # Add database setup commands here             >     sudo apt install mysql-server
+>     log "Database setup completed."
+> }
+>
+> # Function to manipulate data in the database      > manipulate_database() {
+>     log "Manipulating data in the database..."
+>     # Add database manipulation commands here      >     # Example: mysql -u username -p password -e "SQL query"
+>     log "Data manipulation completed."             > }
+>
+> # Main function to execute the program
+> main() {
+>     check_dependencies                             >     create_directory_structure
+>     start_program
+>     execute_shodan_scan                            >     login_to_maltego
+>     perform_maltego_task "/path/to/file.csv"
+>     execute_dnsenum "example.com"
+>     generate_report                                >     security_audit
+>     setup_database
+>     manipulate_database
+> }
+>
+> # Execute the main function
+> main#!/bin/bash
+bash: !/bin/bash: event not found
+>
+> # Clone MISP repository
+> git clone https://github.com/MISP/MISP.git
+>
+> # Install and configure MISP
+> # Follow the instructions in the MISP documentation>
+> # Integrate MISP with MITRE ATT&CK
+> # Import MITRE ATT&CK framework into MISP and map indicators to techniques
+>
+> # Clone threat hunting scripts
+> git clone https://github.com/threat-hunting-scripts/script1.git
+> git clone https://github.com/threat-hunting-scripts/script2.git
+> # Clone additional scripts as needed
+>
+> # Configure and run threat hunting scripts
+> # Follow instructions provided with each script
+>
+> # Incorporate MISP data into threat hunting scripts> # Modify scripts to leverage data from MISP
+>
+> # Execute threat hunting scripts
+> # Run configured scripts to hunt for threats and anomalies
+>
+> # Analyze and respond to findings
+> # Review script output and take appropriate actions>
+> # Automate threat hunting
+> # Schedule script runs or integrate with automation tools
+>
+> # Monitor and refine
+> # Continuously assess and improve threat hunting processes#!/bin/bash
+>
+> # Function to clone repositories
+> clone_repositories() {
+>     git clone https://github.com/MISP/MISP.git
+>     git clone https://github.com/threat-hunting-scripts/script1.git
+>     git clone https://github.com/threat-hunting-scripts/script2.git
+>     # Add more repositories as needed
+> }
+>
+> # Function to install and configure MISP
+> install_misp() {
+>     # Add installation and configuration steps for MISP
+> }
+bash: syntax error near unexpected token `}'         
+┌──(root㉿localhost)-[/home/userland]                └─#
+
+┌──(root㉿localhost)-[/home/userland]
+K─# # Function to integrate MISP with MITRE ATT&CK
+
+┌──(root㉿localhost)-[/home/userland]
+└─# integrate_misp_with_attack() {
+>     # Add steps to import MITRE ATT&CK framework into MISP and map indicators
+> }
+bash: syntax error near unexpected token `}'
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]                g scriptsction to configure and run threat hunting
+                                                     ┌──(root㉿localhost)-[/home/userland]
+└─# configure_and_run_threat_hunting() {
+>     # Add steps to configure and run threat hunting scripts
+> }
+bash: syntax error near unexpected token `}'         
+┌──(root㉿localhost)-[/home/userland]
+└─#                                                  
+┌──(root㉿localhost)-[/home/userland]                at hunting scriptsincorporate MISP data into threa
+                                                     ┌──(root㉿localhost)-[/home/userland]
+└─# incorporate_misp_data() {
+>     # Add steps to modify scripts to leverage MISP data
+> }                                                  bash: syntax error near unexpected token `}'
+
+┌──(root㉿localhost)-[/home/userland]                └─#
+                                                     └─# # Function to analyze and respond to findings
+└─# # Function to analyze and respond to findings
+┌──(root㉿localhost)-[/home/userland]
+└─# analyze_and_respond() {
+>     # Add steps to analyze script output and take actions                                               > }
+bash: syntax error near unexpected token `}'
+                                                     ┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to automate threat hunting
+
+┌──(root㉿localhost)-[/home/userland]
+└─# automate_threat_hunting() {
+>     # Add steps to automate script runs or integrate with automation tools
+> }
+bash: syntax error near unexpected token `}'         
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to monitor and refine
+
+┌──(root㉿localhost)-[/home/userland]
+└─# monitor_and_refine() {                           >     # Add steps to continuously assess and improve threat hunting processes
+> }
+bash: syntax error near unexpected token `}'
+                                                     ┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Main function to execute the program
+
+┌──(root㉿localhost)-[/home/userland]
+└─# main() {
+>     clone_repositories
+>     install_misp
+>     integrate_misp_with_attack
+>     configure_and_run_threat_hunting
+>     incorporate_misp_data
+>     analyze_and_respond                            >     automate_threat_hunting
+>     monitor_and_refine
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Execute the main function
+
+┌──(root㉿localhost)-[/home/userland]
+└─# main#!/bin/bash
+bash: !/bin/bash: event not found
+┌──(root㉿localhost)-[/home/userland]
+└─#                                                  
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to call ChatGPT API
+
+┌──(root㉿localhost)-[/home/userland]                └─# call_chatgpt_api() {
+>     # Add code to call ChatGPT API here
+>     echo "Calling ChatGPT API..."
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to call OSINTGPT API
+
+┌──(root㉿localhost)-[/home/userland]
+└─# call_osintgpt_api() {
+>     # Add code to call OSINTGPT API here           >     echo "Calling OSINTGPT API..."
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to call HackerGPT API
+
+┌──(root㉿localhost)-[/home/userland]
+└─# call_hackergpt_api() {
+>     # Add code to call HackerGPT API here
+>     echo "Calling HackerGPT API..."
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to perform security scanning
+
+┌──(root㉿localhost)-[/home/userland]
+└─# perform_security_scanning() {
+>     # Add security scanning commands here
+>     echo "Performing security scanning..."
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]                └─# # Function to analyze security findings
+
+┌──(root㉿localhost)-[/home/userland]
+└─# analyze_security_findings() {
+>     # Add analysis of security findings here       >     echo "Analyzing security findings..."
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Main function to execute the program
+
+┌──(root㉿localhost)-[/home/userland]
+└─# main() {
+>     call_chatgpt_api
+>     call_osintgpt_api
+>     call_hackergpt_api                             >     perform_security_scanning
+>     analyze_security_findings
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Execute the main function
+
+┌──(root㉿localhost)-[/home/userland]
+└─# main#!/bin/bash
+bash: !/bin/bash: event not found                    ┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to call ChatGPT API
+
+┌──(root㉿localhost)-[/home/userland]
+└─# call_chatgpt_api() {
+>     # Add code to call ChatGPT API here
+>     echo "Calling ChatGPT API..."                  > }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to call OSINTGPT API
+                                                     ┌──(root㉿localhost)-[/home/userland]
+└─# call_osintgpt_api() {
+>     # Add code to call OSINTGPT API here
+>     echo "Calling OSINTGPT API..."
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#                                                  
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to call HackerGPT API
+
+┌──(root㉿localhost)-[/home/userland]
+└─# call_hackergpt_api() {
+>     # Add code to call HackerGPT API here
+>     echo "Calling HackerGPT API..."
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#                                                  
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to perform security scanning
+
+┌──(root㉿localhost)-[/home/userland]
+└─# perform_security_scanning() {
+>     # Add security scanning commands here
+>     echo "Performing security scanning..."         > }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+                                                     ┌──(root㉿localhost)-[/home/userland]
+└─# # Function to analyze security findings
+
+┌──(root㉿localhost)-[/home/userland]
+└─# analyze_security_findings() {                    >     # Add analysis of security findings here
+>     echo "Analyzing security findings..."
+> }                                                  
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]                └─# # Function to generate report
+
+┌──(root㉿localhost)-[/home/userland]                └─# generate_report() {
+>     # Add code to generate report here             >     echo "Generating report..."
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#                                                  
+┌──(root㉿localhost)-[/home/userland]
+└─# # Main function to execute the program
+                                                     ┌──(root㉿localhost)-[/home/userland]
+└─# main() {                                         >     # Call GPT APIs
+>     call_chatgpt_api
+>     call_osintgpt_api
+>     call_hackergpt_api                             >
+>     # Perform security scanning
+>     perform_security_scanning
+>
+>     # Analyze security findings                    >     analyze_security_findings
+>
+>     # Generate report                              >     generate_report
+>                                                    >     echo "Program execution completed."
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]                └─# # Execute the main function
+
+┌──(root㉿localhost)-[/home/userland]
+└─# main#!/bin/bash
+bash: !/bin/bash: event not found                    ┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to call ChatGPT API                   
+┌──(root㉿localhost)-[/home/userland]
+└─# call_chatgpt_api() {                             >     echo "Calling ChatGPT API..."
+>     # Add code to call ChatGPT API here
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+                                                     ┌──(root㉿localhost)-[/home/userland]
+└─# # Function to call OSINTGPT API
+
+┌──(root㉿localhost)-[/home/userland]
+└─# call_osintgpt_api() {                            >     echo "Calling OSINTGPT API..."
+>     # Add code to call OSINTGPT API here
+> }
+
+┌──(root㉿localhost)-[/home/userland]                └─#
+
+┌──(root㉿localhost)-[/home/userland]                └─# # Function to call HackerGPT API
+
+┌──(root㉿localhost)-[/home/userland]
+└─# call_hackergpt_api() {
+>     echo "Calling HackerGPT API..."
+>     # Add code to call HackerGPT API here
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to perform security scanning
+
+┌──(root㉿localhost)-[/home/userland]
+└─# perform_security_scanning() {                    >     echo "Performing security scanning..."
+>     # Add security scanning commands here
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#                                                  
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to analyze security findings
+                                                     ┌──(root㉿localhost)-[/home/userland]
+└─# analyze_security_findings() {
+>     echo "Analyzing security findings..."
+>     # Add analysis of security findings here       > }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+                                                     ┌──(root㉿localhost)-[/home/userland]
+└─# # Function to generate report
+
+┌──(root㉿localhost)-[/home/userland]
+└─# generate_report() {
+>     echo "Generating report..."
+>     # Add code to generate report here             > }                                                  
+┌──(root㉿localhost)-[/home/userland]                └─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Main function to execute the program
+
+┌──(root㉿localhost)-[/home/userland]
+└─# main() {
+>     # Call GPT APIs
+>     call_chatgpt_api
+>     call_osintgpt_api
+>     call_hackergpt_api
+>                                                    >     # Perform security scanning
+>     perform_security_scanning
+>
+>     # Analyze security findings
+>     analyze_security_findings                      >
+>     # Generate report
+>     generate_report                                >
+>     echo "Program execution completed."
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Execute the main function
+
+┌──(root㉿localhost)-[/home/userland]
+└─# main#!/bin/bash
+bash: !/bin/bash: event not found
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]                └─# # Maltego login credentials
+
+┌──(root㉿localhost)-[/home/userland]
+└─# MALTEGO_USERNAME="jimdupell10@gmail.com"
+
+┌──(root㉿localhost)-[/home/userland]
+└─# MALTEGO_PASSWORD="Watitdo13$$"
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to log messages
+
+┌──(root㉿localhost)-[/home/userland]
+└─# log() {
+>     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1"
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#                                                  
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to call ChatGPT API
+
+┌──(root㉿localhost)-[/home/userland]
+└─# call_chatgpt_api() {
+>     log "Calling ChatGPT API..."                   >     # Add code to call ChatGPT API here
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to call OSINTGPT API                  
+┌──(root㉿localhost)-[/home/userland]
+└─# call_osintgpt_api() {
+>     log "Calling OSINTGPT API..."
+>     # Add code to call OSINTGPT API here
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to call HackerGPT API
+
+┌──(root㉿localhost)-[/home/userland]
+└─# call_hackergpt_api() {
+>     log "Calling HackerGPT API..."
+>     # Add code to call HackerGPT API here          > }
+
+┌──(root㉿localhost)-[/home/userland]                └─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to perform security scanning
+                                                     ┌──(root㉿localhost)-[/home/userland]
+└─# perform_security_scanning() {
+>     log "Performing security scanning..."
+>     # Add security scanning commands here
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#                                                                                                       ┌──(root㉿localhost)-[/home/userland]
+└─# # Function to analyze security findings
+
+┌──(root㉿localhost)-[/home/userland]                └─# analyze_security_findings() {
+>     log "Analyzing security findings..."
+>     # Add analysis of security findings here       > }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+                                                     ┌──(root㉿localhost)-[/home/userland]
+└─# # Function to generate report                    
+┌──(root㉿localhost)-[/home/userland]
+└─# generate_report() {
+>     log "Generating report..."
+>     # Add code to generate report here
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to login to Maltego
+
+┌──(root㉿localhost)-[/home/userland]
+└─# login_to_maltego() {                             >     log "Logging in to Maltego..."
+>     maltegoce -u "$MALTEGO_USERNAME" -p "$MALTEGO_PASSWORD" > /dev/null 2>&1
+>     if [ $? -eq 0 ]; then
+>         log "Login successful."
+>     else
+>         log "Failed to login to Maltego. Please check your credentials."
+>         exit 1
+>     fi
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#                                                                                                       └─# # Function to perform a specific Maltego task
+└─# # Function to perform a specific Maltego task
+┌──(root㉿localhost)-[/home/userland]                └─# perform_maltego_task() {
+>     local file_path="$1"
+>     log "Performing Maltego task: Importing file $file_path"                                            >     maltegoce import "$file_path" > /dev/null 2>&1
+>     if [ $? -eq 0 ]; then
+>         log "File $file_path imported successfully."                                                    >     else
+>         log "Failed to import file $file_path into Maltego."                                            >     fi
+> }                                                  
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to integrate with Shodan
+
+┌──(root㉿localhost)-[/home/userland]
+└─# integrate_with_shodan() {
+>     log "Integrating with Shodan..."
+>     # Add code to integrate with Shodan here
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to integrate with MISP
+
+┌──(root㉿localhost)-[/home/userland]
+└─# integrate_with_misp() {
+>     log "Integrating with MISP..."
+>     # Add code to integrate with MISP here
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]                └─# # Function to execute main program
+
+┌──(root㉿localhost)-[/home/userland]                └─# main() {
+>     call_chatgpt_api                               >     call_osintgpt_api                              >     call_hackergpt_api
+>     perform_security_scanning
+>     analyze_security_findings
+>     generate_report
+>     login_to_maltego                               >     perform_maltego_task "/path/to/file.csv"
+>     integrate_with_shodan
+>     integrate_with_misp
+>     log "Program execution completed."
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+                                                     ┌──(root㉿localhost)-[/home/userland]
+└─# # Execute the main function
+
+┌──(root㉿localhost)-[/home/userland]                └─# main#!/bin/bash
+bash: !/bin/bash: event not found
+┌──(root㉿localhost)-[/home/userland]                └─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Define API keys and credentials
+                                                     ┌──(root㉿localhost)-[/home/userland]
+└─# MALTEGO_USERNAME="jimdupell10@gmail.com"         
+┌──(root㉿localhost)-[/home/userland]                └─# MALTEGO_PASSWORD="Watitdo13$$"
+
+┌──(root㉿localhost)-[/home/userland]
+└─# SHODAN_API_KEY="YOUR_SHODAN_API_KEY"
+
+┌──(root㉿localhost)-[/home/userland]
+└─# MISP_API_KEY="YOUR_MISP_API_KEY"
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to log messages
+                                                     ┌──(root㉿localhost)-[/home/userland]
+└─# log() {
+>     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1"       > }
+                                                     ┌──(root㉿localhost)-[/home/userland]
+└─#                                                  
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to perform security scanning          
+┌──(root㉿localhost)-[/home/userland]                └─# perform_security_scanning() {                    >     log "Performing security scanning..."
+>     # Add code to perform security scanning here   > }
+                                                     ┌──(root㉿localhost)-[/home/userland]
+└─#
+                                                     ┌──(root㉿localhost)-[/home/userland]                └─# # Function to analyze security findings
+
+┌──(root㉿localhost)-[/home/userland]
+└─# analyze_security_findings() {                    >     log "Analyzing security findings..."
+>     # Add code to analyze security findings here
+> }                                                  
+┌──(root㉿localhost)-[/home/userland]                └─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to generate security report
+
+┌──(root㉿localhost)-[/home/userland]
+└─# generate_security_report() {
+>     log "Generating security report..."
+>     # Add code to generate security report here
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to perform network analysis
+
+┌──(root㉿localhost)-[/home/userland]
+└─# perform_network_analysis() {
+>     log "Performing network analysis..."
+>     # Add code to perform network analysis here
+> }
+                                                     ┌──(root㉿localhost)-[/home/userland]
+└─#                                                  
+┌──(root㉿localhost)-[/home/userland]                └─# # Function to integrate with Shodan
+
+┌──(root㉿localhost)-[/home/userland]
+└─# integrate_with_shodan() {
+>     log "Integrating with Shodan..."               >     # Add code to integrate with Shodan here
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to integrate with MISP
+
+┌──(root㉿localhost)-[/home/userland]
+└─# integrate_with_misp() {
+>     log "Integrating with MISP..."
+>     # Add code to integrate with MISP here
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to call external APIs
+
+┌──(root㉿localhost)-[/home/userland]
+└─# call_external_apis() {                           >     log "Calling external APIs..."
+>     # Add code to call external APIs here          > }
+                                                     ┌──(root㉿localhost)-[/home/userland]
+└─#
+                                                     ┌──(root㉿localhost)-[/home/userland]
+└─# # Function to login to Maltego
+
+┌──(root㉿localhost)-[/home/userland]
+└─# login_to_maltego() {
+>     log "Logging in to Maltego..."
+>     maltegoce -u "$MALTEGO_USERNAME" -p "$MALTEGO_PASSWORD" > /dev/null 2>&1                            >     if [ $? -eq 0 ]; then
+>         log "Login successful."                    >     else
+>         log "Failed to login to Maltego. Please check your credentials."
+>         exit 1
+>     fi
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+└─# # Function to perform a specific Maltego task
+└─# # Function to perform a specific Maltego task
+┌──(root㉿localhost)-[/home/userland]
+└─# perform_maltego_task() {
+>     local file_path="$1"
+>     log "Performing Maltego task: Importing file $file_path"
+>     maltegoce import "$file_path" > /dev/null 2>&1
+>     if [ $? -eq 0 ]; then
+>         log "File $file_path imported successfully."
+>     else
+>         log "Failed to import file $file_path into Maltego."
+>     fi
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+                                                     ┌──(root㉿localhost)-[/home/userland]
+└─# # Function to execute main program
+
+┌──(root㉿localhost)-[/home/userland]
+└─# main() {                                         >     perform_security_scanning
+>     analyze_security_findings
+>     generate_security_report
+>     perform_network_analysis
+>     integrate_with_shodan
+>     integrate_with_misp
+>     call_external_apis
+>     login_to_maltego
+>     perform_maltego_task "/path/to/file.csv"       >     log "Program execution completed."
+> }
+
+┌──(root㉿localhost)-[/home/userland]                └─#
+
+┌──(root㉿localhost)-[/home/userland]                └─# # Execute the main function
+
+┌──(root㉿localhost)-[/home/userland]
+└─# main#!/bin/bash
+bash: !/bin/bash: event not found                    ┌──(root㉿localhost)-[/home/userland]
+└─#                                                  
+┌──(root㉿localhost)-[/home/userland]
+└─# # Maltego login credentials
+
+┌──(root㉿localhost)-[/home/userland]
+└─# MALTEGO_USERNAME="jimdupell10@gmail.com"
+
+┌──(root㉿localhost)-[/home/userland]
+└─# MALTEGO_PASSWORD="Watitdo13$$"
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]                └─# # API keys
+
+┌──(root㉿localhost)-[/home/userland]
+└─# SHODAN_API_KEY="YOUR_SHODAN_API_KEY"
+
+┌──(root㉿localhost)-[/home/userland]
+└─# MISP_API_KEY="YOUR_MISP_API_KEY"
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to log messages
+
+┌──(root㉿localhost)-[/home/userland]
+└─# log() {
+>     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1"
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]                └─# # Function to perform security scanning          
+┌──(root㉿localhost)-[/home/userland]                └─# perform_security_scanning() {                    >     log "Performing security scanning..."
+>     # Add code to perform security scanning here
+> }                                                  
+┌──(root㉿localhost)-[/home/userland]                └─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to analyze security findings
+
+┌──(root㉿localhost)-[/home/userland]
+└─# analyze_security_findings() {
+>     log "Analyzing security findings..."
+>     # Add code to analyze security findings here
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to generate security report
+
+┌──(root㉿localhost)-[/home/userland]
+└─# generate_security_report() {
+>     log "Generating security report..."
+>     # Add code to generate security report here
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to perform network analysis
+
+┌──(root㉿localhost)-[/home/userland]
+└─# perform_network_analysis() {
+>     log "Performing network analysis..."
+>     # Add code to perform network analysis here
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to integrate with Shodan
+
+┌──(root㉿localhost)-[/home/userland]
+└─# integrate_with_shodan() {
+>     log "Integrating with Shodan..."
+>     # Add code to integrate with Shodan here
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#                                                  
+┌──(root㉿localhost)-[/home/userland]
+└─# # Function to integrate with MISP
+
+┌──(root㉿localhost)-[/home/userland]                └─# integrate_with_misp() {
+>     log "Integrating with MISP..."
+>     # Add code to integrate with MISP here
+> }
+
+┌──(root㉿localhost)-[/home/userland]                └─#                                                  
+┌──(root㉿localhost)-[/home/userland]                └─# # Function to call external APIs
+
+┌──(root㉿localhost)-[/home/userland]
+└─# call_external_apis() {                           >     log "Calling external APIs..."
+>     # Add code to call external APIs here
+> }                                                  
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]                └─# # Function to login to Maltego
+                                                     ┌──(root㉿localhost)-[/home/userland]
+└─# login_to_maltego() {
+>     log "Logging in to Maltego..."
+>     maltegoce -u "$MALTEGO_USERNAME" -p "$MALTEGO_PASSWORD" > /dev/null 2>&1
+>     if [ $? -eq 0 ]; then
+>         log "Login successful."
+>     else
+>         log "Failed to login to Maltego. Please check your credentials."
+>         exit 1
+>     fi
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+└─# # Function to perform a specific Maltego task
+└─# # Function to perform a specific Maltego task
+┌──(root㉿localhost)-[/home/userland]
+└─# perform_maltego_task() {
+>     local file_path="$1"
+>     log "Performing Maltego task: Importing file $file_path"
+>     maltegoce import "$file_path" > /dev/null 2>&1
+>     if [ $? -eq 0 ]; then
+>         log "File $file_path imported successfully."                                                    >     else
+>         log "Failed to import file $file_path into Maltego."
+>     fi
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]                └─# # Main function to execute the program
+
+┌──(root㉿localhost)-[/home/userland]
+└─# main() {                                         >     perform_security_scanning                      >     analyze_security_findings
+>     generate_security_report                       >     perform_network_analysis
+>     integrate_with_shodan                          >     integrate_with_misp
+>     call_external_apis
+>     login_to_maltego
+>     perform_maltego_task "/path/to/file.csv"
+>     log "Program execution completed."
+> }
+
+┌──(root㉿localhost)-[/home/userland]
+└─#
+
+┌──(root㉿localhost)-[/home/userland]
+└─# # Execute the main function                      
+┌──(root㉿localhost)-[/home/userland]                └─# main
+2024-02-16 07:56:49 - Performing security scanning...
+2024-02-16 07:56:49 - Analyzing security findings...
+2024-02-16 07:56:49 - Generating security report...
+2024-02-16 07:56:49 - Performing network analysis...
+2024-02-16 07:56:49 - Integrating with Shodan...
+2024-02-16 07:56:49 - Integrating with MISP...
+2024-02-16 07:56:49 - Calling external APIs...
+2024-02-16 07:56:49 - Logging in to Maltego...
+2024-02-16 07:56:49 - Failed to login to Maltego. Please check your credentials.
+exit
+                                                     ┌──(userland㉿localhost)-[~]
+└─$
+#!/bin/bash
+
+# Function to install libpam-tmpdir
+install_libpam_tmpdir() {
+    echo "Installing libpam-tmpdir..."
+    sudo apt-get update
+    sudo apt-get install -y libpam-tmpdir
+    echo "libpam-tmpdir installed successfully."
+}
+
+# Function to install apt-listbugs
+install_apt_listbugs() {
+    echo "Installing apt-listbugs..."
+    sudo apt-get update
+    sudo apt-get install -y apt-listbugs
+    echo "apt-listbugs installed successfully."
+}
+
+# Add more functions for each remediation step
+
+# Main function to perform all remediations
+main() {
+    echo "Performing remediations suggested by Lynis..."
+
+    # Call each function to perform the remediations
+    install_libpam_tmpdir
+    install_apt_listbugs
+
+    # Add calls to other functions for additional remediation steps
+
+    echo "All remediations completed."
+}
+
+# Call the main function to start remediation process
+main
