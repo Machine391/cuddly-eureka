@@ -1,0 +1,119 @@
+#!/bin/bash
+
+# ANSI color codes
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+BLUE='\033[0;34m'
+MAGENTA='\033[0;35m'
+CYAN='\033[0;36m'
+BOLD='\033[1m'
+RESET='\033[0m'
+
+# Function to display ASCII art
+display_ascii_art() {
+    echo -e "${RED}"
+    echo "  ____ ____    _    ____  _____    ______   __"
+    echo " / ___|  _ \  / \  |  _ \| ____|  / ___\ \ / /"
+    echo "| |  _| | | |/ _ \ | |_) |  _|   | |    \ V / "
+    echo "| |_| | |_| / ___ \|  __/| |___  | |___  | |  "
+    echo " \____|____/_/   \_\_|   |_____|  \____| |_|  "
+    echo -e "${RESET}"
+}
+
+# Function to display documentation
+display_documentation() {
+    echo -e "${BOLD}Welcome to the ${RED}SecretShell${RESET}!${RESET}"
+    echo "This shell supports the following commands:"
+    echo -e "${GREEN}- cd <directory>:${RESET} Change current directory."
+    echo -e "${GREEN}- pwd:${RESET} Print current directory."
+    echo -e "${GREEN}- echo <message>:${RESET} Display a message."
+    echo -e "${GREEN}- cp <source> <destination>:${RESET} Copy file or directory."
+    echo -e "${GREEN}- mv <source> <destination>:${RESET} Move file or directory."
+    echo -e "${GREEN}- wget <URL>:${RESET} Download file from the internet."
+    echo -e "${GREEN}- cat <file>:${RESET} Display contents of a file."
+    echo -e "${GREEN}- touch <file>:${RESET} Create an empty file."
+    echo -e "${GREEN}- git clone <repository>:${RESET} Clone a Git repository."
+    echo -e "${GREEN}- nano <file>:${RESET} Open a file in the Nano text editor."
+    echo -e "${GREEN}- locate <keyword>:${RESET} Search for files using locate."
+    echo -e "${GREEN}- exit:${RESET} Exit the shell."
+    echo -e "${GREEN}- alias <name>='<command>':${RESET} Define an alias for a command."
+    echo -e "${GREEN}- source <script.sh>:${RESET} Execute a shell script."
+    echo -e "${GREEN}- /:${RESET} Navigate to the root directory."
+    echo ""
+}
+
+# Function for tab completion
+custom_tab_completion() {
+    local cur prev commands
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    commands="cd pwd echo cp mv wget cat touch git clone nano locate exit alias source /"
+
+    case "$prev" in
+        "cd"|"cp"|"mv"|"cat"|"touch"|"git"|"nano")
+            COMPREPLY=($(compgen -d -- "$cur"))
+            return 0
+            ;;
+        "echo"|"wget"|"locate")
+            return 0
+            ;;
+        "alias"|"source")
+            COMPREPLY=($(compgen -f -- "$cur"))
+            return 0
+            ;;
+        *)
+            COMPREPLY=($(compgen -W "$commands" -- "$cur"))
+            return 0
+            ;;
+    esac
+}
+
+# Main function
+main() {
+    # Display ASCII art
+    display_ascii_art
+
+    # Display documentation
+    display_documentation
+
+    echo "You can start entering commands below."
+
+    while true; do
+        # Read user input
+        read -e -p "$ " input
+
+        # Check for exit command
+        if [ "$input" == "exit" ]; then
+            echo "Exiting..."
+            break
+        fi
+
+        # Handle other commands
+        case "$input" in
+            alias\ *)
+                # Define alias
+                alias_command="${input#alias }"
+                eval "$alias_command"
+                save_configuration
+                ;;
+            source\ *)
+                # Execute shell script
+                script_path="${input#source }"
+                if [ -f "$script_path" ]; then
+                    source "$script_path"
+                else
+                    echo -e "${RED}Error:${RESET} Script '$script_path' not found."
+                fi
+                ;;
+            *)
+                # Execute command
+                execute_command "$input"
+                ;;
+        esac
+    done
+}
+
+# Call the main function
+main

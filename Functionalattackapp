@@ -1,0 +1,132 @@
+#!/bin/bash
+
+# Color codes for enhancing output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# Function to display the title and ASCII art
+display_title() {
+    clear
+    echo -e "${GREEN}"
+    echo "  ██████╗ ██╗   ██╗███████╗███████╗██╗███╗   ██╗ ██████╗ "
+    echo " ██╔═══██╗██║   ██║██╔════╝██╔════╝██║████╗  ██║██╔════╝ "
+    echo " ██║   ██║██║   ██║███████╗███████╗██║██╔██╗ ██║██║  ███╗"
+    echo " ██║▄▄ ██║██║   ██║╚════██║╚════██║██║██║╚██╗██║██║   ██║"
+    echo " ╚██████╔╝╚██████╔╝███████║███████║██║██║ ╚████║╚██████╔╝"
+    echo -e "  ╚══▀▀═╝  ╚═════╝ ╚══════╝╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ${NC}"
+    echo -e "${BLUE}=============================================================${NC}"
+    echo -e "${YELLOW}Created by: James Dupell${NC}"
+    echo -e "${YELLOW}GitHub: https://github.com/${NC}"
+}
+
+# Function to install necessary dependencies
+install_dependencies() {
+    display_title
+    echo -e "${YELLOW}Installing necessary dependencies...${NC}"
+    apt-get update
+    apt-get install -y wget unzip git python3
+    echo -e "${GREEN}Dependencies installed successfully.${NC}"
+    read -n 1 -s -r -p "Press any key to continue..."
+}
+
+# Function to clone and configure Mr.Holmes
+clone_and_configure_mrholmes() {
+    display_title
+    echo -e "${YELLOW}Cloning and configuring Mr.Holmes...${NC}"
+    git clone https://github.com/Lucksi/Mr.Holmes /opt/Mr.Holmes
+    cd /opt/Mr.Holmes || exit
+    sudo chmod +x install.sh
+    sudo bash install.sh
+    echo -e "${GREEN}Mr.Holmes setup complete.${NC}"
+    read -n 1 -s -r -p "Press any key to continue..."
+}
+
+# Function to clone and configure mrphish
+clone_and_configure_mrphish() {
+    display_title
+    echo -e "${YELLOW}Cloning and configuring mrphish...${NC}"
+    git clone https://github.com/noob-hackers/mrphish /opt/mrphish
+    echo -e "${GREEN}mrphish setup complete.${NC}"
+    read -n 1 -s -r -p "Press any key to continue..."
+}
+
+# Function to clone and configure fikrado.py
+clone_and_configure_fikrado() {
+    display_title
+    echo -e "${YELLOW}Cloning and configuring fikrado.py...${NC}"
+    git clone https://github.com/fikrado/fikrado.py /opt/fikrado.py
+    cd /opt/fikrado.py || exit
+    bash termux.sh
+    python2 fikrado.py
+    echo -e "${GREEN}fikrado.py setup complete.${NC}"
+    read -n 1 -s -r -p "Press any key to continue..."
+}
+
+# Function to clone and configure FB-BRUTEFORCE
+clone_and_configure_fb_bruteforce() {
+    display_title
+    echo -e "${YELLOW}Cloning and configuring FB-BRUTEFORCE...${NC}"
+    git clone https://github.com/WHITEDH4CKER/FB-BRUTEFORCE /opt/FB-BRUTEFORCE
+    echo -e "${GREEN}FB-BRUTEFORCE setup complete.${NC}"
+    read -n 1 -s -r -p "Press any key to continue..."
+}
+
+# Function to clone and configure Impulse
+clone_and_configure_impulse() {
+    display_title
+    echo -e "${YELLOW}Cloning and configuring Impulse...${NC}"
+    git clone https://github.com/LimerBoy/Impulse /opt/Impulse
+    cd /opt/Impulse || exit
+    python3 impulse.py --help
+    echo -e "${GREEN}Impulse setup complete.${NC}"
+    read -n 1 -s -r -p "Press any key to continue..."
+}
+
+# Function to clone and configure PhoneInfoga
+clone_and_configure_phoneinfoga() {
+    display_title
+    echo -e "${YELLOW}Cloning and configuring PhoneInfoga...${NC}"
+    git clone https://github.com/sundowndev/PhoneInfoga.git /opt/PhoneInfoga
+    echo -e "${GREEN}PhoneInfoga setup complete.${NC}"
+    read -n 1 -s -r -p "Press any key to continue..."
+}
+
+# Function to display the main menu
+display_main_menu() {
+    display_title
+    echo -e "${BLUE}============== Cybersecurity Toolbox & Phishing Tool ==============${NC}"
+    echo "1. Install and Configure Dependencies"
+    echo "2. Clone and Configure Mr.Holmes"
+    echo "3. Clone and Configure mrphish"
+    echo "4. Clone and Configure fikrado.py"
+    echo "5. Clone and Configure FB-BRUTEFORCE"
+    echo "6. Clone and Configure Impulse"
+    echo "7. Clone and Configure PhoneInfoga"
+    echo "8. Exit"
+    echo -e "${BLUE}==================================================================${NC}"
+}
+
+# Main function for the script
+main() {
+    while true; do
+        display_main_menu
+        read -p "Enter your choice: " choice
+        case $choice in
+            1) install_dependencies ;;
+            2) clone_and_configure_mrholmes ;;
+            3) clone_and_configure_mrphish ;;
+            4) clone_and_configure_fikrado ;;
+            5) clone_and_configure_fb_bruteforce ;;
+            6) clone_and_configure_impulse ;;
+            7) clone_and_configure_phoneinfoga ;;
+            8) echo -e "${GREEN}Exiting...${NC}"; break ;;
+            *) echo -e "${RED}Invalid choice. Please enter a number from 1 to 8.${NC}" ;;
+        esac
+    done
+}
+
+# Execute the main function
+main

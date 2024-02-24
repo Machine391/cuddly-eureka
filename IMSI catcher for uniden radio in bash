@@ -1,0 +1,119 @@
+#!/bin/bash
+
+# IMSI Catcher Bash Script
+
+# Function to capture IMSI numbers
+capture_imsi() {
+    echo "Scanning frequencies and capturing IMSI numbers..."
+    timeout 60s sudo rtl_fm -f 935M:960M -M fm -s 200000 -r 48000 - | sudo multimon-ng -t raw -a FLEX -a POCSAG512 -a POCSAG1200 -a POCSAG2400 -a POCSAG -a SCOPE -a AFSK1200 -a AFSK2400 -a AFSK2400_2 -a AFSK2400_3 -a HAPN4800 -a FSK9600 -a DTMF -a ZVEI1 -a ZVEI2 -a ZVEI3 -a DZVEI -a PZVEI -a EEA -a EIA -a CCIR -a MORSE_CW -a MORSE_WWV -a DUMPCSV - | grep -o -E 'IMSI: [0-9]+' | cut -d' ' -f2
+}
+
+# Function to backup IMSI data
+backup_data() {
+    local TIMESTAMP=$(date +"%Y%m%d%H%M%S")
+    local BACKUP_DIR="backups/backup_$TIMESTAMP"
+    
+    echo "Creating backup directory: $BACKUP_DIR"
+    sudo mkdir -p "$BACKUP_DIR"
+    
+    echo "Copying IMSI data to backup directory..."
+    sudo cp imsi_data.txt "$BACKUP_DIR/"
+    
+    echo "Backup complete."
+}
+
+# Function to scan for Wi-Fi networks using WigleWifi
+scan_wifi_wigle() {
+    echo "Scanning for Wi-Fi networks using WigleWifi..."
+    sudo wiglewifi -i wlan0 -m -o wiglewifi_output.txt
+    echo "Wi-Fi scan complete. Results saved to wiglewifi_output.txt"
+}
+
+# Function to scan for Wi-Fi networks using Kismet
+scan_wifi_kismet() {
+    echo "Scanning for Wi-Fi networks using Kismet..."
+    sudo kismet -c wlan0
+    echo "Wi-Fi scan complete."
+}
+
+# Function to interact with Flipper Zero
+interact_flipper_zero() {
+    echo "Interacting with Flipper Zero..."
+    # Add your Flipper Zero interaction commands here
+    echo "Flipper Zero interaction complete."
+}
+
+# Function to display title
+display_title() {
+    echo "====================="
+    echo " IMSI Catcher Platform "
+    echo "====================="
+    echo ""
+}
+
+# Function to display menu
+display_menu() {
+    echo "Menu:"
+    echo "1. Capture IMSI numbers"
+    echo "2. Backup IMSI data"
+    echo "3. Scan for Wi-Fi networks (WigleWifi)"
+    echo "4. Scan for Wi-Fi networks (Kismet)"
+    echo "5. Interact with Flipper Zero"
+    echo "6. Exit"
+    echo ""
+}
+
+# Main function
+main() {
+    local choice
+    
+    while true; do
+        clear
+        display_title
+        display_menu
+        read -p "Enter your choice: " choice
+        case $choice in
+            1)
+                capture_imsi >> imsi_data.txt
+                echo "IMSI numbers captured."
+                ;;
+            2)
+                backup_data
+                ;;
+            3)
+                scan_wifi_wigle
+                ;;
+            4)
+                scan_wifi_kismet
+                ;;
+            5)
+                interact_flipper_zero
+                ;;
+            6)
+                echo "Exiting..."
+                exit 0
+                ;;
+            *)
+                echo "Invalid choice. Please enter a valid option."
+                ;;
+        esac
+        read -p "Press Enter to continue..."
+    done
+}
+
+# Check if script is run as root
+if [ "$(id -u)" -ne 0 ]; then
+    echo "Please run this script as root"
+    exit 1
+fi
+
+# Install necessary tools
+echo "Installing required tools..."
+sudo apt-get update
+sudo apt-get install -y rtl-sdr multimon-ng wiglewifi kismet
+
+# Create directory for backups if not exists
+mkdir -p backups
+
+# Run the main function
+main &chmod +x imsi_catcher.sh

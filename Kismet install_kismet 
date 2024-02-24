@@ -1,0 +1,199 @@
+#!/bin/bash
+
+# Color codes
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# Function to display title
+display_title() {
+    echo -e "${BLUE}=====================${NC}"
+    echo -e "${BLUE} IMSI Catcher Platform ${NC}"
+    echo -e "${BLUE}=====================${NC}"
+    echo ""
+}
+
+# Function to display main menu
+display_main_menu() {
+    echo -e "${GREEN}Main Menu:${NC}"
+    echo "1. Capture IMSI numbers"
+    echo "2. Backup IMSI data"
+    echo "3. Scan GSM frequencies"
+    echo "4. Capture GSM packets"
+    echo "5. Monitor GSM frequencies"
+    echo "6. Run Wireshark"
+    echo "7. Run Nmap"
+    echo "8. Run Metasploit"
+    echo "9. Install Kismet"
+    echo "10. Exit"
+    echo ""
+    echo -e "Enter your choice: ${NC}"
+}
+
+# Function to display submenu for scanning GSM frequencies
+display_scan_menu() {
+    echo -e "${GREEN}Scan GSM Frequencies Menu:${NC}"
+    echo "1. Scan with kalibrate-hackrf"
+    echo "2. Scan with other tool"
+    echo "3. Back to main menu"
+    echo ""
+    echo -e "Enter your choice: ${NC}"
+}
+
+# Function to display submenu for capturing GSM packets
+display_capture_menu() {
+    echo -e "${GREEN}Capture GSM Packets Menu:${NC}"
+    echo "1. Capture with Wireshark"
+    echo "2. Capture with tcpdump"
+    echo "3. Back to main menu"
+    echo ""
+    echo -e "Enter your choice: ${NC}"
+}
+
+# Function to capture IMSI numbers
+capture_imsi() {
+    echo -e "${YELLOW}Scanning frequencies and capturing IMSI numbers...${NC}"
+    # Add command to capture IMSI numbers
+}
+
+# Function to backup IMSI data
+backup_data() {
+    echo -e "${YELLOW}Backing up IMSI data...${NC}"
+    # Add command to backup IMSI data
+}
+
+# Function to scan GSM frequencies
+scan_gsm_frequencies() {
+    while true; do
+        clear
+        display_scan_menu
+        read -p "" choice
+        case $choice in
+            1)
+                echo -e "${YELLOW}Running kalibrate-hackrf to scan GSM frequencies...${NC}"
+                # Add command to run kalibrate-hackrf
+                ;;
+            2)
+                echo -e "${YELLOW}Scanning GSM frequencies with another tool...${NC}"
+                # Add command to scan with another tool
+                ;;
+            3)
+                break
+                ;;
+            *)
+                echo -e "${RED}Invalid choice. Please enter a valid option.${NC}"
+                ;;
+        esac
+        read -p "Press Enter to continue..."
+    done
+}
+
+# Function to capture GSM packets
+capture_gsm_packets() {
+    while true; do
+        clear
+        display_capture_menu
+        read -p "" choice
+        case $choice in
+            1)
+                echo -e "${YELLOW}Capturing GSM packets with Wireshark...${NC}"
+                # Add command to capture packets with Wireshark
+                ;;
+            2)
+                echo -e "${YELLOW}Capturing GSM packets with tcpdump...${NC}"
+                # Add command to capture packets with tcpdump
+                ;;
+            3)
+                break
+                ;;
+            *)
+                echo -e "${RED}Invalid choice. Please enter a valid option.${NC}"
+                ;;
+        esac
+        read -p "Press Enter to continue..."
+    done
+}
+
+# Function to run Wireshark
+run_wireshark() {
+    echo -e "${YELLOW}Running Wireshark...${NC}"
+    # Add command to run Wireshark
+}
+
+# Function to run Nmap
+run_nmap() {
+    echo -e "${YELLOW}Running Nmap...${NC}"
+    # Add command to run Nmap
+}
+
+# Function to run Metasploit
+run_metasploit() {
+    echo -e "${YELLOW}Running Metasploit...${NC}"
+    # Add command to run Metasploit
+}
+
+# Function to install Kismet
+install_kismet() {
+    echo -e "${YELLOW}Cloning Kismet Git repository...${NC}"
+    git clone https://github.com/kismetwireless/kismet.git
+    echo -e "${YELLOW}Installing dependencies for Kismet...${NC}"
+    # Add commands to install dependencies for Kismet
+    echo -e "${YELLOW}Building and installing Kismet...${NC}"
+    cd kismet
+    ./configure
+    make
+    sudo make install
+}
+
+# Main function
+main() {
+    while true; do
+        clear
+        display_title
+        display_main_menu
+        read -p "" choice
+        case $choice in
+            1)
+                capture_imsi
+                ;;
+            2)
+                backup_data
+                ;;
+            3)
+                scan_gsm_frequencies
+                ;;
+            4)
+                capture_gsm_packets
+                ;;
+            5)
+                echo -e "${YELLOW}Monitoring GSM frequencies...${NC}"
+                # Add command to monitor GSM frequencies
+                ;;
+            6)
+                run_wireshark
+                ;;
+            7)
+                run_nmap
+                ;;
+            8)
+                run_metasploit
+                ;;
+            9)
+                install_kismet
+                ;;
+            10)
+                echo -e "${GREEN}Exiting...${NC}"
+                exit 0
+                ;;
+            *)
+                echo -e "${RED}Invalid choice. Please enter a valid option.${NC}"
+                ;;
+        esac
+        read -p "Press Enter to continue..."
+    done
+}
+
+# Run the main function
+main

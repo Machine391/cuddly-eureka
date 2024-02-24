@@ -1,0 +1,87 @@
+import requests
+from bs4 import BeautifulSoup
+import tensorflow as tf
+from tensorflow.keras.layers import LSTM, Transformer
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+import spacy
+import re
+import logging
+
+# Set up logging
+logging.basicConfig(filename='threat_detection.log', level=logging.INFO,
+                    format='%(asctime)s - %(levelname)s - %(message)s')
+
+class ThreatDetectionBackend:
+    def __init__(self):
+        self.nlp = spacy.load("en_core_web_sm")
+
+    def validate_url(self, url):
+        regex = re.compile(
+            r'^(?:http|ftp)s?://'  # http:// or https:// or ftp://
+            r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|'  # domain...
+            r'localhost|'  # localhost...
+            r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})'  # ...or IP
+            r'(?::\d+)?'  # optional port
+            r'(?:/?|[/?]\S+)$', re.IGNORECASE)
+        return bool(re.match(regex, url))
+
+    def fetch_threat_updates(self, url):
+        try:
+            if not self.validate_url(url):
+                raise ValueError("Invalid URL format.")
+            response = requests.get(url)
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.content, 'html.parser')
+                updates = soup.find_all('div', class_='threat-update')
+                threat_updates = [update.text.strip() for update in updates]
+                return threat_updates
+            else:
+                logging.error(f"Failed to fetch threat updates. Status Code: {response.status_code}")
+                print("Failed to fetch threat updates.")
+                return []
+        except Exception as e:
+            logging.error(f"Error fetching threat updates: {e}")
+            print("Error fetching threat updates:", e)
+            return []
+
+    def preprocess_threat_updates(self, threat_updates, max_sequence_length):
+        try:
+            tokenizer = Tokenizer()
+            tokenizer.fit_on_texts(threat_updates)
+            sequences = tokenizer.texts_to_sequences(threat_updates)
+            padded_sequences = pad_sequences(sequences, maxlen=max_sequence_length, padding='post')
+            return padded_sequences, tokenizer.word_index
+        except Exception as e:
+            logging.error(f"Error preprocessing threat updates: {e}")
+            print("Error preprocessing threat updates:", e)
+            return None, None
+
+    def build_rnn_model(self, vocab_size, embedding_dim, max_sequence_length):
+        try:
+            model = tf.keras.Sequential([
+                tf.keras.layers.Embedding(input_dim=vocab_size, output_dim=embedding_dim, input_length=max_sequence_length),
+                LSTM(units=64),
+                tf.keras.layers.Dense(1, activation='sigmoid')
+            ])
+            model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+            return model
+        except Exception as e:
+            logging.error(f"Error building RNN model: {e}")
+            print("Error building RNN model:", e)
+            return None
+
+    def build_transformer_model(self, vocab_size, embedding_dim, max_sequence_length):
+        try:
+            model = tf.keras.Sequential([
+                tf.keras.layers.Embedding(input_dim=vocab_size, output_dim=embedding_dim, input_length=max_sequence_length),
+                Transformer(num_layers=2, d_model=128, num_heads=8, dff=128, input_vocab_size=vocab_size, maximum_position_encoding=max_sequence_length),
+                tf.keras.layers.GlobalAveragePooling1D(),
+                tf.keras.layers.Dense(1, activation='sigmoid')
+            ])
+            model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+            return model
+        except Exception as e:
+            logging.error(f"Error building Transformer model: {e}")
+            print("Error building Transformer model:", e)
+            return None

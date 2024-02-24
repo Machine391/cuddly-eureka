@@ -1,0 +1,31 @@
+To search all directories on an Android device for APK files, you can modify the script to recursively search the entire filesystem. Here's the updated script:
+
+```bash
+#!/bin/bash
+
+# Directory to start the search
+search_dir="/"
+
+# Find all APK files in the entire filesystem
+apks=$(find "$search_dir" -name "*.apk" 2>/dev/null)
+
+# Check if any APK files were found
+if [ -n "$apks" ]; then
+    echo "APK files found:"
+    echo "$apks"
+else
+    echo "No APK files found in the entire filesystem"
+fi
+```
+
+Save this script to a file, for example, `detect_apk.sh`, and make it executable:
+
+```bash
+chmod +x detect_apk.sh
+```
+
+Then, you can run the script on your Android device using a terminal emulator app or via ADB (Android Debug Bridge).
+
+This script searches the entire filesystem starting from the root directory (`/`) for APK files and lists them if any are found. The script uses the `find` command with the `-name "*.apk"` option to recursively search for files with the `.apk` extension.
+
+Please note that searching the entire filesystem may take some time and consume resources. Additionally, accessing certain directories may require root access, so the script may not be able to detect APK files stored in restricted directories without root permissions.chmod +x detect_apk.sh

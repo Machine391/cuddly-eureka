@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Function to check if git command exists
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+# Function to clone FreeBSD repository
+clone_freebsd() {
+    echo "Cloning FreeBSD repository..."
+    git clone --depth=1 https://github.com/freebsd/freebsd.git || { echo "Error: Failed to clone FreeBSD repository"; exit 1; }
+    echo "FreeBSD repository cloned successfully"
+}
+
+# Check if git command exists
+if ! command_exists git; then
+    echo "Error: Git command not found. Please install git and try again."
+    exit 1
+fi
+
+# Set DISPLAY variable if not set
+if [ -z "$DISPLAY" ]; then
+    echo "DISPLAY environment variable is not set. Setting it to :0."
+    export DISPLAY=:0
+fi
+
+# Run cloning function
+clone_freebsd
+
+echo "Cloning completed successfully."

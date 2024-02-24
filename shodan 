@@ -1,0 +1,23 @@
+https://developer.shodan.io/api
+shodanAPI =
+
+[plugins]
+#https://numverify.com/documentation
+phoneapis =
+#https://ipstack.com/documentation
+IPStackAPI =
+#https://developers.google.com/maps/documentation/places/web-service/get-api-key
+gmap =[API_KEYS]
+shodanAPI = YOUR_SHODAN_API_KEY
+phoneapis = YOUR_PHONE_API_KEY
+IPStackAPI = YOUR_IPSTACK_API_KEY
+gmap = YOUR_GOOGLE_MAPS_API_KEYhttps://developer.shodan.io/api
+shodanAPI =
+
+[plugins]
+#https://numverify.com/documentation
+phoneapis =
+#https://ipstack.com/documentation
+IPStackAPI =
+#https://developers.google.com/maps/documentation/places/web-service/get-api-key
+gmap =

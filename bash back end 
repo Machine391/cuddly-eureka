@@ -1,0 +1,5 @@
+# Build the backend Docker image
+docker build -t threat-detection-backend -f backend/Dockerfile .
+
+# Build the frontend Docker image
+docker build -t threat-detection-frontend -f frontend/Dockerfile .

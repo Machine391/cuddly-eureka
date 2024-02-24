@@ -1,0 +1,226 @@
+#!/bin/bash
+
+# Function to check if a command executed successfully
+check_command_success() {
+    if [ $? -eq 0 ]; then
+        echo "Command executed successfully."            else                                                     echo "Error: Command failed to execute."
+        exit 1
+    fi
+}
+
+# Function to install necessary dependencies         install_dependencies() {
+    echo "=== Installing necessary dependencies ==="
+    sudo apt-get update && sudo apt-get install -y nmap wireshark tcpdump metasploit-framework wiglewifi kismet tiger lynis snort git                              check_command_success
+    # Install Social-Engineer Toolkit (SET)
+    git clone https://github.com/trustedsec/social-engineer-toolkit.git /opt/set
+    cd /opt/set && sudo ./setup.py install
+    check_command_success
+    # Clone OSINT Framework
+    git clone https://github.com/lockfale/OSINT-Framework.git /opt/OSINT-Framework
+    check_command_success
+}
+
+# Function to display connected devices
+display_connected_devices() {
+    echo "=== Displaying connected devices ==="
+    sudo arp -a
+}
+
+# Function to perform traceroute
+perform_traceroute() {
+    echo "=== Performing traceroute ==="
+    read -p "Enter the target IP or domain: " target
+    sudo traceroute $target
+    check_command_success
+}
+
+# Function to perform network mapping using Nmap with maximum impact
+perform_network_mapping_nmap() {
+    echo "=== Performing network mapping using Nmap with maximum impact ==="                                  read -p "Enter the target IP range or domain: " target
+    sudo nmap -T4 -A $target
+    check_command_success
+}
+
+# Function to perform Wi-Fi scanning of connected devices
+perform_wifi_scan() {
+    echo "=== Performing Wi-Fi scanning and displaying SSIDs ==="                                             sudo iw dev | grep ssid
+}
+
+# Function to generate a report
+generate_report() {
+    echo "=== Generating report ==="
+    # Add your report generation commands here
+    echo "Report generated successfully."            }
+
+# Function to analyze network traffic
+analyze_network_traffic() {
+    echo "=== Analyzing network traffic ==="
+    sudo tcpdump -i any
+}
+
+# Function to list all available Metasploit exploits
+list_metasploit_exploits() {                             echo "=== Listing all available Metasploit exploits ==="
+    sudo msfconsole -q -x "show exploits"
+}
+
+# Function to list all available Metasploit vulnerabilities
+list_metasploit_vulnerabilities() {
+    echo "=== Listing all available Metasploit vulnerabilities ==="                                           sudo msfconsole -q -x "show vulnerabilities"     }
+
+# Function to list all available Metasploit evasion tactics
+list_metasploit_evasion() {
+    echo "=== Listing all available Metasploit evasion tactics ==="                                           sudo msfconsole -q -x "show evasion"             }
+
+# Function to execute Metasploit automation
+execute_metasploit_automation() {
+    echo "=== Executing Metasploit automation ==="
+    # Add your Metasploit automation commands here
+}
+
+# Function to perform port scanning and mapping using Wiglewifi
+perform_wiglewifi_countersurveillance() {
+    echo "=== Performing countersurveillance using Wiglewifi ==="
+    # Add your Wiglewifi commands here               }
+
+# Function to collect information from connected browsers
+collect_information_from_browsers() {
+    echo "=== Collecting information from connected browsers ==="
+    # Add your browser information collection commands here
+}
+
+# Function to perform system auditing using Tiger
+perform_system_auditing_tiger() {
+    echo "=== Performing system auditing using Tiger ==="
+    sudo tiger
+}
+
+# Function to perform system auditing using Lynis
+perform**⬤**() {
+    echo "=== Performing system auditing using Lynis ==="
+    sudo lynis audit system
+}
+
+# Function to configure and start Snort              configure_and_start_snort() {
+    echo "=== Configuring and starting Snort ==="
+    sudo snort -c /etc/snort/snort.conf -i <interface>                                                    }
+
+# Function to stop Snort
+stop_snort() {
+    echo "=== Stopping Snort ==="
+    sudo killall snort
+}
+
+# Function to view Snort alerts
+view_snort_alerts() {                                    echo "=== Viewing Snort alerts ==="                  sudo cat /var/log/snort/alert
+}
+
+# Function to perform social engineering attacks using Social-Engineer Toolkit (SET)
+perform_social_engineering() {
+    echo "=== Performing social engineering attacks using Social-Engineer Toolkit (SET) ==="
+    sudo setoolkit
+}
+
+# Function to perform OSINT (Open Source Intelligence) gathering using OSINT Framework
+perform_osint_gathering() {
+    echo "=== Performing OSINT (Open Source Intelligence) gathering using OSINT Framework ==="
+    cd /opt/OSINT-Framework
+    sudo python3 osint.py
+}                                                    
+# Function to update package lists
+update_package_lists() {
+    echo "=== Updating package lists ==="
+    sudo apt-get update
+    check_command_success
+}
+                                                     # Function to fix package status file
+fix_package_status_file() {
+    echo "=== Fixing package status file ==="
+    sudo rm /var/lib/dpkg/status
+    sudo apt-get update                                  check_command_success
+}
+
+# Function to fix APT post-invoke-success script
+fix_apt_script() {
+    echo "=== Fixing APT post-invoke-success script ==="
+    sudo sed -i '/APT::Update::Post-Invoke-Success/ s/^/#/' /etc/apt/apt.conf.d/99update-stamp
+    check_command_success
+}
+
+# Function to check disk space
+check_disk_space() {
+    echo "=== Checking disk space ==="
+    df -h
+}
+
+# Function to check for file system errors           check_file_system_errors() {
+    echo "=== Checking for file system errors ==="
+    sudo fsck -y /dev/sda1  # Adjust the device accordingly
+    check_command_success
+}
+
+# Function to display the welcome message and start the program                                           start_program() {
+    echo "Welcome to Recon1 - Your Network Reconnaissance Toolkit"                                            echo "------------------------------------------------------"
+    read -p "Press Enter to start..." start
+    main_menu
+}
+
+# Function to display the main menu
+main_menu() {
+    clear
+    while true; do
+        echo "===== Recon1 Main Menu ====="
+        echo "1. Display connected devices"
+        echo "2. Perform traceroute"
+        echo "3. Perform network mapping using Nmap"
+        echo "4. Perform Wi-Fi scanning and display SSIDs"
+        echo "5. Generate report"
+        echo "6. Analyze network traffic"
+        echo "7. List all available Metasploit exploits"
+        echo "8. List all available Metasploit vulnerabilities"                                                   echo "9. List all available Metasploit evasion tactics"
+        echo "10. Execute Metasploit automation"
+        echo "11. Perform countersurveillance using Wiglewifi"
+        echo "12. Collect information from connected browsers"
+        echo "13. Perform system auditing using Tiger"
+        echo "14. Perform system auditing using Lynis"
+        echo "15. Configure and start Snort"
+        echo "16. Stop Snort"
+        echo "17. View Snort alerts"
+        echo "18. Perform social engineering attacks"
+        echo "19. Perform OSINT gathering"
+        echo "20. Update package lists"                      echo "21. Fix package status file"
+        echo "22. Fix APT post-invoke-success script"
+        echo "23. Check disk space"
+        echo "24. Check for file system errors"
+        echo "25. Exit"
+        echo "============================"
+        read -p "Enter your choice: " choice
+        case $choice in
+            1) display_connected_devices;;
+            2) perform_traceroute;;
+            3) perform_network_mapping_nmap;;
+            4) perform_wifi_scan;;
+            5) generate_report;;
+            6) analyze_network_traffic;;                         7) list_metasploit_exploits;;
+            8) list_metasploit_vulnerabilities;;
+            9) list_metasploit_evasion;;                         10) execute_metasploit_automation;;
+            11) perform_wiglewifi_countersurveillance;;
+            12) collect_information_from_browsers;;
+            13) perform_system_auditing_tiger;;
+            14) perform_system_auditing_lynis;;
+            15) configure_and_start_snort;;
+            16) stop_snort;;
+            17) view_snort_alerts;;
+            18) perform_social_engineering;;
+            19) perform_osint_gathering;;
+            20) update_package_lists;;
+            21) fix_package_status_file;;
+            22) fix_apt_script;;
+            23) check_disk_space;;
+            24) check_file_system_errors;;
+            25) echo "Exiting..."; exit;;
+            *) echo "Invalid option";;
+        esac
+    done
+}
+                                                     # Execute the program
+start_program
