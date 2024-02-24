@@ -1,0 +1,297 @@
+#!/bin/bash
+
+# Function to handle errors
+handle_error() {
+    echo "An error occurred. Exiting..."
+    exit 1
+}
+
+# Function to display the menu
+display_menu() {
+    echo "Select an option:"
+    echo "1. Install Metasploit Framework"
+    echo "2. Install Nmap"
+    echo "3. Install Wireshark"
+    echo "4. Install OWASP ZAP"
+    echo "5. Install BeEF Project"
+    echo "6. Install Burp Suite"
+    echo "7. Install Kismet"
+    echo "8. Install WiGLE WiFi"
+    echo "9. Install Social-Engineer Toolkit"
+    echo "10. Install Exploit Database"
+    echo "11. Install TheHarvester"
+    echo "12. Install SpiderFoot"
+    echo "13. Install Pipl"
+    echo "14. Install PhoneInfoga"
+    echo "15. Install Maskphish"
+    echo "16. Install Mr. Holmes"
+    echo "17. Install all tools"
+    echo "18. Clone Chimay-Red from GitHub"
+    echo "19. Clone Vault7_Scribbles from GitHub"
+    echo "20. Clone Hashicorp from GitHub"
+    echo "21. Clone Vault-7 from GitHub"
+    echo "22. Clone hashistack from GitHub"
+    echo "23. Clone currency-config-server from GitHub"
+    echo "24. Clone PHP-Nuke-Titanium from GitHub"
+    echo "25. Clone EncryptedField from GitHub"
+    echo "26. Clone grep-search-for-secret-private-api-or-other-keys from GitHub"
+    echo "27. Install Apache HTTP Server"
+    echo "28. Install Nginx Web Server"
+    echo "29. Install MySQL Database Server"
+    echo "30. Install PostgreSQL Database Server"
+    echo "31. Install Tor"
+    echo "32. Configure Tor"
+    echo "33. Install ProxyChains"
+    echo "34. Configure ProxyChains"
+    echo "35. Exit"
+}
+
+# Function to clone a repository from GitHub
+clone_repository() {
+    REPO_NAME=$1
+    echo "Cloning $REPO_NAME from GitHub..."
+    git clone https://github.com/$REPO_NAME.git || handle_error
+    echo "$REPO_NAME cloned successfully!"
+}
+
+# Function to install Metasploit Framework
+install_metasploit() {
+    echo "Installing Metasploit Framework..."
+    clone_repository "rapid7/metasploit-framework" && cd metasploit-framework && bundle install || handle_error
+    echo "Metasploit Framework installed successfully!"
+}
+
+# Function to install Nmap
+install_nmap() {
+    echo "Installing Nmap..."
+    clone_repository "nmap/nmap" && cd nmap && ./configure && make && make install || handle_error
+    echo "Nmap installed successfully!"
+}
+
+# Function to install Wireshark
+install_wireshark() {
+    echo "Installing Wireshark..."
+    sudo apt-get install wireshark tshark || handle_error
+    echo "Wireshark installed successfully!"
+}
+
+# Function to install OWASP ZAP
+install_zap() {
+    echo "Installing OWASP ZAP..."
+    sudo apt-get install zaproxy || handle_error
+    echo "OWASP ZAP installed successfully!"
+}
+
+# Function to install BeEF Project
+install_beef() {
+    echo "Installing BeEF Project..."
+    clone_repository "beefproject/beef" || handle_error
+    echo "BeEF Project installed successfully!"
+}
+
+# Function to install Burp Suite
+install_burp_suite() {
+    echo "Installing Burp Suite..."
+    sudo apt-get install burpsuite || handle_error
+    echo "Burp Suite installed successfully!"
+}
+
+# Function to install Kismet
+install_kismet() {
+    echo "Installing Kismet..."
+    sudo apt-get install kismet || handle_error
+    echo "Kismet installed successfully!"
+}
+
+# Function to install WiGLE WiFi
+install_wigle_wifi() {
+    echo "Installing WiGLE WiFi..."
+    clone_repository "wiglenet/wiglewifi" || handle_error
+    echo "WiGLE WiFi installed successfully!"
+}
+
+# Function to install Social-Engineer Toolkit
+install_set() {
+    echo "Installing Social-Engineer Toolkit..."
+    clone_repository "trustedsec/social-engineer-toolkit" && cd social-engineer-toolkit && sudo python setup.py install || handle_error
+    echo "Social-Engineer Toolkit installed successfully!"
+}
+
+# Function to install Exploit Database
+install_exploitdb() {
+    echo "Installing Exploit Database..."
+    clone_repository "offensive-security/exploitdb" || handle_error
+    echo "Exploit Database installed successfully!"
+}
+
+# Function to install TheHarvester
+install_theharvester() {
+    echo "Installing TheHarvester..."
+    clone_repository "laramies/theHarvester" || handle_error
+    echo "TheHarvester installed successfully!"
+}
+
+# Function to install SpiderFoot
+install_spiderfoot() {
+    echo "Installing SpiderFoot..."
+    clone_repository "smicallef/spiderfoot" && cd spiderfoot && sudo pip install -r requirements.txt || handle_error
+    echo "SpiderFoot installed successfully!"
+}
+
+# Function to install Pipl
+install_pipl() {
+    echo "Installing Pipl..."
+    sudo apt-get install pipl || handle_error
+    echo "Pipl installed successfully!"
+}
+
+# Function to install PhoneInfoga
+install_phoneinfoga() {
+    echo "Installing PhoneInfoga..."
+    clone_repository "sundowndev/PhoneInfoga" && cd PhoneInfoga && bash install.sh || handle_error
+    echo "PhoneInfoga installed successfully!"
+}
+
+# Function to install Maskphish
+install_maskphish() {
+    echo "Installing Maskphish..."
+    clone_repository "jaykali/maskphish" && cd maskphish && bash install.sh || handle_error
+    echo "Maskphish installed successfully!"
+}
+
+# Function to install Mr. Holmes
+install_mr_holmes() {
+    echo "Installing Mr. Holmes..."
+    clone_repository "calebstewart/mrholmes" && cd mrholmes && sudo bash install.sh || handle_error
+    echo "Mr. Holmes installed successfully!"
+}
+
+# Function to install all tools
+install_all_tools() {
+    install_metasploit
+    install_nmap
+    install_wireshark
+    install_zap
+    install_beef
+    install_burp_suite
+    install_kismet
+    install_wigle_wifi
+    install_set
+    install_exploitdb
+    install_theharvester
+    install_spiderfoot
+    install_pipl
+    install_phoneinfoga
+    install_maskphish
+    install_mr_holmes
+}
+
+# Function to install Apache HTTP Server
+install_apache() {
+    echo "Installing Apache HTTP Server..."
+    sudo apt-get install apache2 || handle_error
+    echo "Apache HTTP Server installed successfully!"
+}
+
+# Function to install Nginx Web Server
+install_nginx() {
+    echo "Installing Nginx Web Server..."
+    sudo apt-get install nginx || handle_error
+    echo "Nginx Web Server installed successfully!"
+}
+
+# Function to install MySQL Database Server
+install_mysql() {
+    echo "Installing MySQL Database Server..."
+    sudo apt-get install mysql-server || handle install_mysql() {
+    echo "Installing MySQL Database Server..."
+    sudo apt-get install mysql-server || handle_error
+    echo "MySQL Database Server installed successfully!"
+}
+
+# Function to install PostgreSQL Database Server
+install_postgresql() {
+    echo "Installing PostgreSQL Database Server..."
+    sudo apt-get install postgresql || handle_error
+    echo "PostgreSQL Database Server installed successfully!"
+}
+
+# Function to install Tor
+install_tor() {
+    echo "Installing Tor..."
+    sudo apt-get install tor || handle_error
+    echo "Tor installed successfully!"
+}
+
+# Function to configure Tor
+configure_tor() {
+    echo "Configuring Tor..."
+    # Add Tor configuration steps here
+    echo "Tor configured successfully!"
+}
+
+# Function to install ProxyChains
+install_proxychains() {
+    echo "Installing ProxyChains..."
+    sudo apt-get install proxychains || handle_error
+    echo "ProxyChains installed successfully!"
+}
+
+# Function to configure ProxyChains
+configure_proxychains() {
+    echo "Configuring ProxyChains..."
+    # Add ProxyChains configuration steps here
+    echo "ProxyChains configured successfully!"
+}
+
+# Function to handle the selected option
+handle_option() {
+    read -p "Enter the option number: " option
+    case $option in
+        1) install_metasploit;;
+        2) install_nmap;;
+        3) install_wireshark;;
+        4) install_zap;;
+        5) install_beef;;
+        6) install_burp_suite;;
+        7) install_kismet;;
+        8) install_wigle_wifi;;
+        9) install_set;;
+        10) install_exploitdb;;
+        11) install_theharvester;;
+        12) install_spiderfoot;;
+        13) install_pipl;;
+        14) install_phoneinfoga;;
+        15) install_maskphish;;
+        16) install_mr_holmes;;
+        17) install_all_tools;;
+        18) clone_repository "BigNerd95/Chimay-Red";;
+        19) clone_repository "southzyzy/Vault7_Scribbles";;
+        20) clone_repository "RajeshwariMakond/Hashicorp";;
+        21) clone_repository "Vault-7/Vault-7";;
+        22) clone_repository "jboero/hashistack";;
+        23) clone_repository "dafediegogean/currency-config-server";;
+        24) clone_repository "ernestbuffington/PHP-Nuke-Titanium";;
+        25) clone_repository "GuyLocke/EncryptedField";;
+        26) clone_repository "shubhdhungana/grep-search-for-secret-private-api-or-other-keys";;
+        27) install_apache;;
+        28) install_nginx;;
+        29) install_mysql;;
+        30) install_postgresql;;
+        31) install_tor;;
+        32) configure_tor;;
+        33) install_proxychains;;
+        34) configure_proxychains;;
+        35) exit;;
+        *) echo "Invalid option";;
+    esac
+}
+
+# Main function
+main() {
+    display_menu
+    handle_option
+}
+
+# Start the script
+main

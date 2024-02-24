@@ -1,0 +1,59 @@
+#!/bin/bash
+
+# Function to install and configure Nmap for advanced vulnerability scanning
+install_and_configure_nmap() {
+    clear
+    echo "Installing and configuring Nmap..."
+    if ! command -v nmap &>/dev/null; then
+        sudo apt update && sudo apt install -y nmap
+        if [ $? -eq 0 ]; then
+            echo -e "\n\e[32mNmap installed successfully.\e[0m\n"
+            echo "To perform a vulnerability scan, use: nmap -sV -O target_ip"
+        else
+            echo -e "\n\e[31mFailed to install Nmap. Please check your internet connection and try again.\e[0m\n"
+        fi
+    else
+        echo -e "\n\e[33mNmap is already installed.\e[0m\n"
+    fi
+    read -p "Press Enter to return to the main menu..." -s
+}
+
+# Function to install and configure Suricata for intrusion detection
+install_and_configure_suricata() {
+    clear
+    echo "Installing and configuring Suricata..."
+    if ! command -v suricata &>/dev/null; then
+        sudo apt update && sudo apt install -y suricata
+        if [ $? -eq 0 ]; then
+            echo -e "\n\e[32mSuricata installed successfully.\e[0m\n"
+            echo "To start Suricata, use: sudo suricata -c /etc/suricata/suricata.yaml -i eth0"
+        else
+            echo -e "\n\e[31mFailed to install Suricata. Please check your internet connection and try again.\e[0m\n"
+        fi
+    else
+        echo -e "\n\e[33mSuricata is already installed.\e[0m\n"
+    fi
+    read -p "Press Enter to return to the main menu..." -s
+}
+
+# Main function to start the script
+main() {
+    clear
+    echo "Welcome to the Cybersecurity Toolbox Setup!"
+    while true; do
+        echo -e "\n==== Cybersecurity Toolbox Setup ===="
+        echo "1. Install and Configure Nmap"
+        echo "2. Install and Configure Suricata"
+        echo "3. Quit"
+        read -p "Enter your choice: " choice
+        case $choice in
+            1) install_and_configure_nmap;;
+            2) install_and_configure_suricata;;
+            3) clear && echo "Exiting..."; break;;
+            *) echo "Invalid choice. Please enter a valid option.";;
+        esac
+    done
+}
+
+# Execute the main function
+main

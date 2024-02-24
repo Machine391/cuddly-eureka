@@ -1,0 +1,31 @@
+You can write a script to detect APK files on an Android device and list them. Here's a script that does just that:
+
+```bash
+#!/bin/bash
+
+# Directory to search for APK files
+search_dir="/sdcard"
+
+# Find all APK files in the specified directory
+apks=$(find "$search_dir" -name "*.apk" 2>/dev/null)
+
+# Check if any APK files were found
+if [ -n "$apks" ]; then
+    echo "APK files found:"
+    echo "$apks"
+else
+    echo "No APK files found in $search_dir"
+fi
+```
+
+Save this script to a file, for example, `detect_apk.sh`, and make it executable:
+
+```bash
+chmod +x detect_apk.sh
+```
+
+Then, you can run the script on your Android device using a terminal emulator app or via ADB (Android Debug Bridge).
+
+This script searches the specified directory (`/sdcard` in this example) for APK files and lists them if any are found. Adjust the `search_dir` variable to specify the directory you want to search for APK files in. The script uses the `find` command to recursively search for files with the `.apk` extension.
+
+Please note that this script may not detect APK files stored in system directories without root access. Additionally, it's important to exercise caution when interacting with system directories on your device.

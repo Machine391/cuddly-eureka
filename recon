@@ -1,0 +1,16 @@
+import configparser
+
+# Read API keys from config file
+config = configparser.ConfigParser()
+config.read('api_keys.ini')
+
+shodan_api_key = config.get('API_KEYS', 'shodanAPI')
+phone_api_key = config.get('API_KEYS', 'phoneapis')
+ipstack_api_key = config.get('API_KEYS', 'IPStackAPI')
+gmap_api_key = config.get('API_KEYS', 'gmap')
+
+# Now you can use these API keys in your script
+print("Shodan API Key:", shodan_api_key)
+print("Phone API Key:", phone_api_key)
+print("IPStack API Key:", ipstack_api_key)
+print("Google Maps API Key:", gmap_api_key)

@@ -1,0 +1,229 @@
+#!/bin/bash
+
+# Color variables
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+# Function to display the menu
+display_menu() {
+    echo -e "${YELLOW}Select an option:${NC}"
+    echo -e "${YELLOW}1.${NC} Install ${GREEN}Metasploit Framework${NC}"
+    echo -e "${YELLOW}2.${NC} Install ${GREEN}Nmap${NC}"
+    echo -e "${YELLOW}3.${NC} Install ${GREEN}Wireshark${NC}"
+    echo -e "${YELLOW}4.${NC} Install ${GREEN}OWASP ZAP${NC}"
+    echo -e "${YELLOW}5.${NC} Install ${GREEN}BeEF Project${NC}"
+    echo -e "${YELLOW}6.${NC} Install ${GREEN}Burp Suite${NC}"
+    echo -e "${YELLOW}7.${NC} Install ${GREEN}Kismet${NC}"
+    echo -e "${YELLOW}8.${NC} Install ${GREEN}WiGLE WiFi${NC}"
+    echo -e "${YELLOW}9.${NC} Install ${GREEN}Social-Engineer Toolkit${NC}"
+    echo -e "${YELLOW}10.${NC} Install ${GREEN}Exploit Database${NC}"
+    echo -e "${YELLOW}11.${NC} Install ${GREEN}TheHarvester${NC}"
+    echo -e "${YELLOW}12.${NC} Install ${GREEN}SpiderFoot${NC}"
+    echo -e "${YELLOW}13.${NC} Install ${GREEN}Pipl${NC}"
+    echo -e "${YELLOW}14.${NC} Install ${GREEN}PhoneInfoga${NC}"
+    echo -e "${YELLOW}15.${NC} Install ${GREEN}Maskphish${NC}"
+    echo -e "${YELLOW}16.${NC} Install ${GREEN}Mr. Holmes${NC}"
+    echo -e "${YELLOW}17.${NC} Install ${GREEN}all tools${NC}"
+    echo -e "${YELLOW}18.${NC} Clone ${GREEN}Chimay-Red${NC} from GitHub"
+    echo -e "${YELLOW}19.${NC} Clone ${GREEN}Vault7_Scribbles${NC} from GitHub"
+    echo -e "${YELLOW}20.${NC} Clone ${GREEN}Hashicorp${NC} from GitHub"
+    echo -e "${YELLOW}21.${NC} Clone ${GREEN}Vault-7${NC} from GitHub"
+    echo -e "${YELLOW}22.${NC} Clone ${GREEN}hashistack${NC} from GitHub"
+    echo -e "${YELLOW}23.${NC} Clone ${GREEN}currency-config-server${NC} from GitHub"
+    echo -e "${YELLOW}24.${NC} Clone ${GREEN}PHP-Nuke-Titanium${NC} from GitHub"
+    echo -e "${YELLOW}25.${NC} Clone ${GREEN}EncryptedField${NC} from GitHub"
+    echo -e "${YELLOW}26.${NC} Clone ${GREEN}grep-search-for-secret-private-api-or-other-keys${NC} from GitHub"
+    echo -e "${YELLOW}27.${NC} Exit"
+}
+
+# Function to handle errors
+handle_error() {
+    echo -e "${RED}An error occurred. Exiting...${NC}"
+    exit 1
+}
+
+# Function to clone a repository from GitHub
+clone_repository() {
+    REPO_NAME=$1
+    echo -e "Cloning ${GREEN}$REPO_NAME${NC} from GitHub..."
+    git clone https://github.com/$REPO_NAME.git || handle_error
+    echo -e "${GREEN}$REPO_NAME${NC} cloned successfully!"
+}
+
+# Function to install Metasploit Framework
+install_metasploit() {
+    echo -e "Installing ${GREEN}Metasploit Framework${NC}..."
+    clone_repository "rapid7/metasploit-framework" && cd metasploit-framework && bundle install || handle_error
+    echo -e "${GREEN}Metasploit Framework${NC} installed successfully!"
+}
+
+# Function to install Nmap
+install_nmap() {
+    echo -e "Installing ${GREEN}Nmap${NC}..."
+    clone_repository "nmap/nmap" && cd nmap && ./configure && make && make install || handle_error
+    echo -e "${GREEN}Nmap${NC} installed successfully!"
+}
+
+# Function to install Wireshark
+install_wireshark() {
+    echo -e "Installing ${GREEN}Wireshark${NC}..."
+    sudo apt-get install wireshark tshark || handle_error
+    echo -e "${GREEN}Wireshark${NC} installed successfully!"
+}
+
+# Function to install OWASP ZAP
+install_zap() {
+    echo -e "Installing ${GREEN}OWASP ZAP${NC}..."
+    sudo apt-get install zaproxy || handle_error
+    echo -e "${GREEN}OWASP ZAP${NC} installed successfully!"
+}
+
+# Function to install BeEF Project
+install_beef() {
+    echo -e "Installing ${GREEN}BeEF Project${NC}..."
+    clone_repository "beefproject/beef" || handle_error
+    echo -e "${GREEN}BeEF Project${NC} installed successfully!"
+}
+
+# Function to install Burp Suite
+install_burp_suite() {
+    echo -e "Installing ${GREEN}Burp Suite${NC}..."
+    sudo apt-get install burpsuite || handle_error
+    echo -e "${GREEN}Burp Suite${NC} installed successfully!"
+}
+
+# Function to install Kismet
+install_kismet() {
+    echo -e "Installing ${GREEN}Kismet${NC}..."
+    sudo apt-get install kismet || handle_error
+    echo -e "${GREEN}Kismet${NC} installed successfully!"
+}
+
+# Function to install WiGLE WiFi
+install_wigle_wifi() {
+    echo -e "Installing ${GREEN}WiGLE WiFi${NC}..."
+    clone_repository "wiglenet/wiglewifi" || handle_error
+    echo -e "${GREEN}WiGLE WiFi${NC} installed successfully!"
+}
+
+# Function to install Social-Engineer Toolkit
+install_set() {
+    echo -e "Installing ${GREEN}Social-Engineer Toolkit${NC}..."
+    clone_repository "trustedsec/social-engineer-toolkit" && cd social-engineer-toolkit && sudo python setup.py install || handle_error
+    echo -e "${GREEN}Social-Engineer Toolkit${NC} installed successfully!"
+}
+
+# Function to install Exploit Database
+install_exploitdb() {
+    echo -e "Installing ${GREEN}Exploit Database${NC}..."
+    clone_repository "offensive-security/exploitdb" || handle_error
+    echo -e "${GREEN}Exploit Database${NC} installed successfully!"
+}
+
+# Function to install TheHarvester
+install_theharvester() {
+    echo -e "Installing ${GREEN}TheHarvester${NC}..."
+    clone_repository "laramies/theHarvester" || handle_error
+    echo -e "${GREEN}TheHarvesterinstalled successfully!"
+}
+
+# Function to install SpiderFoot
+install_spiderfoot() {
+    echo -e "Installing ${GREEN}SpiderFoot${NC}..."
+    clone_repository "smicallef/spiderfoot" && cd spiderfoot && sudo pip install -r requirements.txt || handle_error
+    echo -e "${GREEN}SpiderFoot${NC} installed successfully!"
+}
+
+# Function to install Pipl
+install_pipl() {
+    echo -e "Installing ${GREEN}Pipl${NC}..."
+    sudo apt-get install pipl || handle_error
+    echo -e "${GREEN}Pipl${NC} installed successfully!"
+}
+
+# Function to install PhoneInfoga
+install_phoneinfoga() {
+    echo -e "Installing ${GREEN}PhoneInfoga${NC}..."
+    clone_repository "sundowndev/PhoneInfoga" && cd PhoneInfoga && bash install.sh || handle_error
+    echo -e "${GREEN}PhoneInfoga${NC} installed successfully!"
+}
+
+# Function to install Maskphish
+install_maskphish() {
+    echo -e "Installing ${GREEN}Maskphish${NC}..."
+    clone_repository "jaykali/maskphish" && cd maskphish && bash install.sh || handle_error
+    echo -e "${GREEN}Maskphish${NC} installed successfully!"
+}
+
+# Function to install Mr. Holmes
+install_mr_holmes() {
+    echo -e "Installing ${GREEN}Mr. Holmes${NC}..."
+    clone_repository "calebstewart/mrholmes" && cd mrholmes && sudo bash install.sh || handle_error
+    echo -e "${GREEN}Mr. Holmes${NC} installed successfully!"
+}
+
+# Function to install all tools
+install_all_tools() {
+    install_metasploit
+    install_nmap
+    install_wireshark
+    install_zap
+    install_beef
+    install_burp_suite
+    install_kismet
+    install_wigle_wifi
+    install_set
+    install_exploitdb
+    install_theharvester
+    install_spiderfoot
+    install_pipl
+    install_phoneinfoga
+    install_maskphish
+    install_mr_holmes
+}
+
+# Function to handle the selected option
+handle_option() {
+    read -p "Enter the option number: " option
+    case $option in
+        1) install_metasploit;;
+        2) install_nmap;;
+        3) install_wireshark;;
+        4) install_zap;;
+        5) install_beef;;
+        6) install_burp_suite;;
+        7) install_kismet;;
+        8) install_wigle_wifi;;
+        9) install_set;;
+        10) install_exploitdb;;
+        11) install_theharvester;;
+        12) install_spiderfoot;;
+        13) install_pipl;;
+        14) install_phoneinfoga;;
+        15) install_maskphish;;
+        16) install_mr_holmes;;
+        17) install_all_tools;;
+        18) clone_repository "BigNerd95/Chimay-Red";;
+        19) clone_repository "southzyzy/Vault7_Scribbles";;
+        20) clone_repository "RajeshwariMakond/Hashicorp";;
+        21) clone_repository "Vault-7/Vault-7";;
+        22) clone_repository "jboero/hashistack";;
+        23) clone_repository "dafediegogean/currency-config-server";;
+        24) clone_repository "ernestbuffington/PHP-Nuke-Titanium";;
+        25) clone_repository "GuyLocke/EncryptedField";;
+        26) clone_repository "shubhdhungana/grep-search-for-secret-private-api-or-other-keys";;
+        27) exit;;
+        *) echo -e "${RED}Invalid option${NC}";;
+    esac
+}
+
+# Main function
+main() {
+    display_menu
+    handle_option
+}
+
+# Start the script
+main

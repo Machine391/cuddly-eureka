@@ -1,0 +1,35 @@
+To block APK files from being installed on an Android device, you can create a script that monitors the device for newly downloaded APK files and automatically deletes them. Here's a simple script to achieve this:
+
+```bash
+#!/bin/bash
+
+# Directory to monitor for downloaded APK files
+download_dir="/sdcard/Download"
+
+# Infinite loop to continuously monitor the directory
+while true; do
+    # Check for new APK files in the download directory
+    new_apks=$(find "$download_dir" -name "*.apk" -type f 2>/dev/null)
+
+    # If new APK files are found, delete them
+    if [ -n "$new_apks" ]; then
+        echo "Blocking APK files..."
+        echo "$new_apks" | xargs rm -f
+    fi
+
+    # Sleep for 60 seconds before checking again
+    sleep 60
+done
+```
+
+Save this script to a file, for example, `block_apk.sh`, and make it executable:
+
+```bash
+chmod +x block_apk.sh
+```
+
+Then, you can run the script on your Android device using a terminal emulator app or via ADB (Android Debug Bridge).
+
+This script continuously monitors the specified directory (`/sdcard/Download` in this example) for newly downloaded APK files. When it detects new APK files, it deletes them automatically. Adjust the `download_dir` variable to point to the directory where your device saves downloaded files.
+
+Please note that running this script will permanently delete any APK files downloaded to the specified directory, so use it with caution. Additionally, this script requires a rooted device to access and delete files in system directories.

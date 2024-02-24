@@ -1,0 +1,148 @@
+#!/bin/bash
+
+# Function to perform vulnerability scanning using Nmap
+perform_vulnerability_scanning() {
+    echo "Performing vulnerability scanning with Nmap..."
+    # Example command to perform vulnerability scanning with Nmap
+    nmap -p 1-65535 -sV -sS -T4 target_ip
+}
+
+# Function to detect intrusions using Snort
+detect_intrusions() {
+    echo "Detecting intrusions with Snort..."
+    # Example command to detect intrusions with Snort
+    snort -A console -q -c /etc/snort/snort.conf -i eth0
+}
+
+# Function to analyze logs using ELK Stack
+analyze_logs() {
+    echo "Analyzing logs with ELK Stack..."
+    # Example command to start ELK Stack services
+    systemctl start elasticsearch
+    systemctl start kibana
+    systemctl start logstash
+}
+
+# Function to perform threat intelligence gathering
+gather_threat_intelligence() {
+    echo "Gathering threat intelligence..."
+    # Example command to gather threat intelligence with VirusTotal CLI
+    vt <file_hash_or_url>
+}
+
+# Function to harden system configuration
+harden_system() {
+    echo "Hardening system configuration..."
+    # Example commands to enable firewall and update system
+    ufw enable
+    apt update && apt upgrade -y
+}
+
+# Function to configure multi-factor authentication
+configure_mfa() {
+    echo "Configuring multi-factor authentication..."
+    # Example command to configure multi-factor authentication with Google Authenticator
+    apt install libpam-google-authenticator
+    google-authenticator
+}
+
+# Function to install and configure Nmap plugins
+install_and_configure_nmap_plugins() {
+    echo "Installing and configuring Nmap plugins..."
+    # Example commands to install and configure Nmap plugins
+    git clone https://github.com/scipag/vulscan /usr/share/nmap/scripts/vulscan
+    ln -s /usr/share/nmap/scripts/vulscan/vulscan.nse /usr/share/nmap/scripts/
+}
+
+# Function to install and configure Snort plugins
+install_and_configure_snort_plugins() {
+    echo "Installing and configuring Snort plugins..."
+    # Example commands to install and configure Snort plugins
+    git clone https://github.com/firehol/blocklist-ipsets /etc/snort/rules/blocklist-ipsets
+}
+
+# Function to install and configure osquery plugins
+install_and_configure_osquery_plugins() {
+    echo "Installing and configuring osquery plugins..."
+    # Example commands to install and configure osquery plugins
+    git clone https://github.com/osquery/osquery-configuration.git /etc/osquery/
+}
+
+# Function to install and configure ELK Stack plugins
+install_and_configure_elk_plugins() {
+    echo "Installing and configuring ELK Stack plugins..."
+    # Example commands to install and configure ELK Stack plugins
+    systemctl stop elasticsearch kibana logstash
+    /usr/share/elasticsearch/bin/elasticsearch-plugin install analysis-icu
+    /usr/share/kibana/bin/kibana-plugin install https://github.com/sivasamyk/logtrail/releases/download/v0.1.31/logtrail-6.6.2-0.1.31.zip
+    systemctl start elasticsearch kibana logstash
+}
+
+# Function to install and configure tools
+install_and_configure_tools() {
+    echo "Installing and configuring tools..."
+    # Example commands to install and configure popular cybersecurity tools
+    apt install nmap snort filebeat metricbeat packetbeat
+    systemctl enable filebeat metricbeat packetbeat
+
+    # Install and configure plugins for specific tools
+    install_and_configure_nmap_plugins
+    install_and_configure_snort_plugins
+    install_and_configure_osquery_plugins
+    install_and_configure_elk_plugins
+}
+
+# Function to display the main menu
+display_menu() {
+    echo "==== Cybersecurity Toolbox ===="
+    echo "1. Perform Vulnerability Scanning"
+    echo "2. Detect Intrusions"
+    echo "3. Analyze Logs"
+    echo "4. Gather Threat Intelligence"
+    echo "5. Harden System Configuration"
+    echo "6. Configure Multi-Factor Authentication"
+    echo "7. Install and Configure Tools"
+    echo "8. Quit"
+}
+
+# Main function to start the script
+main() {
+    echo "Welcome to the Cybersecurity Toolbox!"
+    while true; do
+        display_menu
+        read -p "Enter your choice: " choice
+        case $choice in
+            1)
+                perform_vulnerability_scanning
+                ;;
+            2)
+                detect_intrusions
+                ;;
+            3)
+                analyze_logs
+                ;;
+            4)
+                gather_threat_intelligence
+                ;;
+            5)
+                harden_system
+                ;;
+            6)
+                configure_mfa
+                ;;
+            7)
+                install_and_configure_tools
+                ;;
+            8)
+                echo "Exiting..."
+                break
+                ;;
+            *)
+                echo "Invalid choice. Please enter a valid option."
+                ;;
+        esac
+    done
+}
+
+# Execute the main function
+main

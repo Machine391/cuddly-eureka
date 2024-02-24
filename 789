@@ -1,0 +1,102 @@
+Certainly! Here's an updated script that includes the functionality to download and install GitHub repositories for Vault 7, Vault 8, and Vault 9:
+
+```bash
+#!/bin/bash
+
+# Function to handle HTTP requests for downloading tools
+download_tool() {
+    echo "Downloading $1..."
+    # Implement the functionality to download the tools
+    # Example: curl -O https://example.com/$1
+}
+
+# Function to run security tools
+run_security_tool() {
+    echo "Running security tool: $1"
+    # Implement the functionality to run security tools
+}
+
+# Function to run penetration testing tools
+run_penetration_testing_tool() {
+    echo "Running penetration testing tool: $1"
+    # Implement the functionality to run penetration testing tools
+}
+
+# Function to clone Vault 7 from GitHub
+clone_vault7() {
+    echo "Cloning Vault 7 from GitHub..."
+    git clone https://github.com/vault7.git
+}
+
+# Function to clone Vault 8 from GitHub
+clone_vault8() {
+    echo "Cloning Vault 8 from GitHub..."
+    git clone https://github.com/vault8.git
+}
+
+# Function to clone Vault 9 from GitHub
+clone_vault9() {
+    echo "Cloning Vault 9 from GitHub..."
+    git clone https://github.com/vault9.git
+}
+
+# Display the menu
+display_menu() {
+    echo "Select an option:"
+    echo "1. Download a security tool"
+    echo "2. Run a security tool"
+    echo "3. Run a penetration testing tool"
+    echo "4. Clone Vault 7 from GitHub"
+    echo "5. Clone Vault 8 from GitHub"
+    echo "6. Clone Vault 9 from GitHub"
+}
+
+# Main function to handle script execution
+main() {
+    display_menu
+    read -p "Enter your choice: " choice
+    case $choice in
+        1)
+            read -p "Enter the name of the tool to download: " tool_name
+            download_tool $tool_name
+            ;;
+        2)
+            read -p "Enter the name of the security tool to run: " security_tool
+            run_security_tool $security_tool
+            ;;
+        3)
+            read -p "Enter the name of the penetration testing tool to run: " penetration_tool
+            run_penetration_testing_tool $penetration_tool
+            ;;
+        4)
+            clone_vault7
+            ;;
+        5)
+            clone_vault8
+            ;;
+        6)
+            clone_vault9
+            ;;
+        *)
+            echo "Invalid option"
+            ;;
+    esac
+}
+
+# Check for sudo privilege
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root (sudo)." 
+   exit 1
+fi
+
+# Run the main function
+main
+```
+
+In this updated script:
+
+- Functions `clone_vault7`, `clone_vault8`, and `clone_vault9` have been added to clone the GitHub repositories for Vault 7, Vault 8, and Vault 9 respectively.
+- The menu has been updated to include options for cloning the Vault repositories from GitHub.
+- The `case` statement in the `main` function has been enhanced to handle the new menu options.
+
+Please replace the placeholders with the actual GitHub repository URLs and ensure that the system has access and permission to clone these repositories. With these updates, the script will provide the functionality to download, run, and clone security tools and repositories from GitHub.
