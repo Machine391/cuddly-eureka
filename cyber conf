@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Function to install libpam-tmpdir
+install_libpam_tmpdir() {
+    echo "Installing libpam-tmpdir..."
+    sudo apt-get update
+    sudo apt-get install -y libpam-tmpdir
+    echo "libpam-tmpdir installed successfully."
+}
+
+# Function to install apt-listbugs
+install_apt_listbugs() {
+    echo "Installing apt-listbugs..."
+    sudo apt-get update
+    sudo apt-get install -y apt-listbugs
+    echo "apt-listbugs installed successfully."
+}
+
+# Add more functions for each remediation step
+
+# Main function to perform all remediations
+main() {
+    echo "Performing remediations suggested by Lynis..."
+
+    # Call each function to perform the remediations
+    install_libpam_tmpdir
+    install_apt_listbugs
+
+    # Add calls to other functions for additional remediation steps
+
+    echo "All remediations completed."
+}
+
+# Call the main function to start remediation process
+main
